@@ -1,6 +1,14 @@
 # WRORepository_Astro
 ## 🚗 Project Overview
-Provide a concise summary of your vehicle's mission, the main technical challenges addressed (line following, obstacle avoidance, parking, etc.), and what makes your design unique.
+This project presents our autonomous vehicle designed for the 2025 World Robot Olympiad (WRO) competition in the Future Engineers category. The robot is fully autonomous, capable of navigating a closed course, detecting and avoiding objects, and parking itself at the end of the course. 
+
+What makes our design unique:
+
+Our vehicle stands out for its redundant and robust sensor architecture: it integrates four strategically positioned ultrasonic sensors that provide full 360° perimeter detection, a color sensor for precise object identification, and an IMU (Inertial Measurement Unit) that allows the robot to maintain orientation and stability in real time.
+
+The brain of the system is a state-of-the-art Raspberry Pi 5 working in conjunction with an Arduino Mega via the Robot Hat v4, creating a dual architecture that separates high-level processing (vision and decision-making) from real-time control (motors and sensors). This hybrid configuration guarantees ultra-fast responses and system stability.
+
+Visually, the robot features a futuristic, technological design in white, reflecting innovation and modernity. The precision servo steering system ensures smooth and accurate maneuvers, while data fusion from multiple sensors enables reliable autonomous navigation even in challenging track conditions.
 ## ⚙️ Vehicle Design
 - Drive system (e.g., differential rear-wheel)
 - Motors (type and quantity) and power source (battery type and specs)
@@ -32,34 +40,34 @@ Provide a concise summary of your vehicle's mission, the main technical challeng
 📂 WRO2025-Future-Engineers/
 ├── README.md                    ← Main documentation file (min. 5000 characters, in English)
 ├── 📂 code/                     ← Complete source code (Python, C++, etc.)
-│   ├── main.py                 ← Main script controlling the robot
+│   ├── astro.py                 ← Main script controlling the robot
 │   ├── modules/                ← Modular code (e.g., vision, movement, decisions)
-│   │   ├── line_detection.py
-│   │   ├── obstacle_avoidance.py
-│   │   └── autonomous_parking.py
+│   │   ├── pruebaAbierta.py 
+│   │   ├── sensors.ino
+│   │   └── 
 │   └── utils/                  ← Helper functions, constants, configuration
-│       ├── config.py
-│       └── math_utils.py
+│       ├── 
+│       └── 
 ├── 📂 hardware/
 │   ├── photos/                 ← Photos of the robot (top, side, bottom views)
-│   │   ├── top_view.jpg
-│   │   ├── side_view.jpg
-│   │   └── bottom_view.jpg
+│   │   ├── 
+│   │   ├── 
+│   │   └── 
 │   └── CAD/                    ← CAD files (STL, DXF, 3D models, PDF diagrams)
-│       ├── robot_model.stl
-│       ├── wiring_diagram.pdf
-│       └── chassis_design.dxf
+│       ├── PrototipoRobot.f3d
+│       ├── 
+│       └── 
 ├── 📂 docs/
-│   ├── Engineering_Process.pdf ← Scanned or digital engineering logbook
-│   ├── Design_Report.pdf      ← Final technical design presentation
-│   └── Score_Tables/          ← (Optional) Performance scoring tables
-│       ├── navigation_score.pdf
-│       └── parking_test.xlsx
+│   ├──                        ← Scanned or digital engineering logbook
+│   ├──                        ← Final technical design presentation
+│   └──                        ← (Optional) Performance scoring tables
+│       ├── 
+│       └── 
 ├── 📂 videos/
-│   ├── youtube_links.txt      ← Text file with public video links (1 per challenge, min. 30 seconds each)
-│   └── screenshots/           ← (Optional) Captures from each test or video
-│       ├── line_following.png
-│       └── parking_demo.png
+│   ├──                        ← Text file with public video links (1 per challenge, min. 30 seconds each)
+│   └──                        ← (Optional) Captures from each test or video
+│       ├── 
+│       └── 
 ├── 📄 LICENSE                  ← Open-source license (MIT or Creative Commons)
 └── 📄 requirements.txt         ← List of Python or system dependencies
 
