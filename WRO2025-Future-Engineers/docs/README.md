@@ -1,6 +1,7 @@
 #🚀 First Prototype Design
-#Initial Sketch and Concept
 --------------------------------
+## Initial Sketch and Concept
+
 Our first prototype was designed with a minimalist yet strategic approach to sensor integration and mechanical structure. 
 The initial concept called for five ultrasonic sensors strategically distributed around the chassis to provide full 
 360-degree obstacle detection coverage: a front-facing central sensor for primary detection, two front-facing sensors 
