@@ -1,4 +1,4 @@
-##🚀 First Prototype Design
+#🚀 First Prototype Design
 #Initial Sketch and Concept
 --------------------------------
 Our first prototype was designed with a minimalist yet strategic approach to sensor integration and mechanical structure. 
