@@ -5,7 +5,9 @@
 Team name: Astro
 
 . Renso Isael Peralta Ureña
+
 . José Miguel Comprés Arias
+
 . Yoel Samuel Castillo Castillo
 
 PUCMM, Dominican Republic
