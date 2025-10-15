@@ -4,9 +4,9 @@
 
 Team name: Astro
 
-Renso Isael Peralta Ureña
-José Miguel Comprés Arias
-Yoel Samuel Castillo Castillo
+. Renso Isael Peralta Ureña
+. José Miguel Comprés Arias
+. Yoel Samuel Castillo Castillo
 
 PUCMM, Dominican Republic
 
@@ -73,10 +73,7 @@ The brain of the system is a state-of-the-art Raspberry Pi 5 working in conjunct
 
 Visually, the robot features a futuristic, technological design in white, reflecting innovation and modernity. The precision servo steering system ensures smooth and accurate maneuvers, while data fusion from multiple sensors enables reliable autonomous navigation even in challenging track conditions.
 
-## ⚙️ Vehicle Design
-
-### Drive System
-*[Add information about differential rear-wheel or other drive system]*
+## ⚙️ Models
 
 ### Components
 - **Main Controller**: Raspberry Pi 5 (high-level processing)
@@ -86,9 +83,9 @@ Visually, the robot features a futuristic, technological design in white, reflec
   - 4x Ultrasonic sensors (360° coverage)
   - 1x Color sensor (line detection)
   - 1x IMU (orientation and stability)
-  - 1x Camera (computer vision)
-- **Motors**: *[Specify type and quantity]*
-- **Power Source**: *[Specify battery type and specifications]*
+  - 1x Raspberry Pi Camera (computer vision) 
+- **Motors**: TT Motor x1
+- **Power Source**: Battery
 
 ### 🚀 First Prototype Design
 
