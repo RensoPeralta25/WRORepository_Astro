@@ -1,2 +1,2 @@
-# Team foto
-Directory that contains the team foto
+# Vehicle photos
+Directory that contains the vehicle photos from all positions
