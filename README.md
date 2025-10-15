@@ -68,13 +68,13 @@ Visually, the robot features a futuristic, technological design in white, reflec
 
 ### Components
 - **Main Controller**: Raspberry Pi 5 (high-level processing)
-- **Real-time Controller**: Arduino Mega (motor and sensor control)
+- **Real-time Controller**: Arduino 1 R3
 - **Interface Board**: Robot Hat v4
 - **Sensors**:
-  - 4x Ultrasonic sensors (360° coverage)
-  - 1x Color sensor (line detection)
-  - 1x IMU (orientation and stability)
-  - 1x Raspberry Pi Camera (computer vision) 
+  - 2x Ultrasonic sensors (Bilateral coverage)
+  - 1x Color sensor TCS 3200 (line detection)
+  - 1x IMU MPU-9250 (orientation)
+  - 1x Raspberry Pi Camera (computer vision)
 - **Motors**: TT Motor x1
 - **Power Source**: Battery
 
@@ -84,8 +84,6 @@ Visually, the robot features a futuristic, technological design in white, reflec
 
 Our first prototype was designed with a minimalist yet strategic approach to sensor integration and mechanical structure. The initial concept called for five ultrasonic sensors strategically distributed around the chassis to provide full 360-degree obstacle detection coverage: a front-facing center sensor for primary detection, two front-facing sensors angled at 45° (left and right) to cover side blind spots, and two side sensors at 90° for wall following and narrow-space detection.
 
-*[Continue with existing first prototype description...]*
-
 ### 🚀 Second Prototype Design
 
 After having thought about this sketch, for reasons of optimizing the position of sensors, we decided to completely change the design of our autonomous robot. As mentioned before, we wanted to have 6 ultrasonics, to help us have more vision.
@@ -93,4 +91,11 @@ After having thought about this sketch, for reasons of optimizing the position o
 <img width="611" height="300" alt="image" src="https://github.com/user-attachments/assets/1e7915e2-b183-4115-982e-7833c104bb1c" />
 
 <img width="611" height="300" alt="image" src="https://github.com/user-attachments/assets/5bd1bc20-b3f7-4b07-879e-12e24e8cacb6" />
+
+## 💻 Sources (src)
+
+
+
+
+
 
