@@ -31,11 +31,8 @@ This repository contains the complete documentation and resources for our autono
   * Bottom view
 
 * **`videos`** - Contains `video.md` file with links to driving demonstration videos including:
-  * Line Following demonstration
-  * Traffic Sign Detection
-  * Obstacle Avoidance
-  * Autonomous Parking
-  * Full course run (minimum 30 seconds each)
+  * Challenge #1
+  * Challenge #2
 
 * **`schemes`** - Contains electromechanical schematic diagrams (JPEG/PNG/PDF format) illustrating:
   * Electronic components layout (Raspberry Pi 5, Arduino Mega, Robot Hat v4)
@@ -55,14 +52,6 @@ This repository contains the complete documentation and resources for our autono
   * STL files for 3D-printed parts (sensor mounts, camera holder, structural elements)
   * First prototype design files
   * Second prototype design files (optimized version)
-  * Assembly drawings and specifications
-
-* **`other`** - Contains additional documentation:
-  * Hardware setup instructions for Raspberry Pi 5
-  * Dependency installation guide (requirements.txt)
-  * Communication protocol documentation between boards
-  * Sensor calibration procedures
-  * Deployment and testing guidelines
 
 ## Introduction
 This project presents our autonomous vehicle designed for the 2025 World Robot Olympiad (WRO) competition in the Future Engineers category. The robot is fully autonomous, capable of navigating a closed course, detecting and avoiding objects, and parking itself at the end of the course.
