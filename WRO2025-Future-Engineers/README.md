@@ -1,5 +1,5 @@
-# WRORepository_Astro
-## 🚗 Project Overview
+# WRO Repository TEAM Astro
+## Introduction
 This project presents our autonomous vehicle designed for the 2025 World Robot Olympiad (WRO) competition in the Future Engineers category. The robot is fully autonomous, capable of navigating a closed course, detecting and avoiding objects, and parking itself at the end of the course. 
 
 What makes our design unique:
@@ -96,13 +96,6 @@ After having thought about this sketch, for reasons of optimizing the position o
 - MIT License Template: https://opensource.org/licenses/MIT
 - GitHub Docs – Structuring a repository: https://docs.github.com/en/repositories
 ```
-## 👥 Team Information
-- Team name: Astro
-- Institution and country: PUCMM, Dominican Republic
-- Team members and roles:
-  - Programming: Jose Miguel Compres Arias
-  - Mechanical design: Yoel Samuel Castillo Castillo
-  - Documentation: Renso Isael Peralta Urena
 ## 📜 License
 This project is released under the MIT License (or other open license).
 Feel free to reuse or adapt for educational purposes.
