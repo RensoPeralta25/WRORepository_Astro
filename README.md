@@ -1,7 +1,14 @@
 # WRO Repository TEAM Astro
 
 ## Team Information
-*[Add team name, members, and country here]*
+
+Team name: Astro
+
+Renso Isael Peralta Ureña
+José Miguel Comprés Arias
+Yoel Samuel Castillo Castillo
+
+PUCMM, Dominican Republic
 
 ## Content Organization
 
