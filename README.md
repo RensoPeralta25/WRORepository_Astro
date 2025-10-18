@@ -158,7 +158,7 @@ The Arduino Uno R3 provides 14 digital I/O pins and 6 analog inputs, which is mo
 
 ### Power Distribution Solution
 
-**Challenge:** Managing multiple 5V power connections for sensors and modules with limited power pins on the Arduino.
+Managing multiple 5V power connections for sensors and modules with limited power pins on the Arduino.
 
 **Solution:** We implemented a breadboard-based power distribution system:
 - **Positive rail (5V):** Connected to Arduino's 5V output pin
