@@ -12,7 +12,7 @@ Team name: Astro
 
 ![team photo](https://github.com/user-attachments/assets/d0d88cb5-2361-492b-bfa1-58ac8055714e)
 
-PUCMM, Dominican Republic <img width="50" height="50" alt="image" src="https://github.com/user-attachments/assets/cacb6bc7-76ba-49e5-9df6-87c6d36aa328" />
+PUCMM, Dominican Republic <img width="15" height="15" alt="image" src="https://github.com/user-attachments/assets/cacb6bc7-76ba-49e5-9df6-87c6d36aa328" />
 
 ## Content Organization
 
