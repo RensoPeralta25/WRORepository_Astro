@@ -1039,12 +1039,15 @@ def sensor_thread():
 ## v-photos
 
 ### Front
+
 ![front1](https://github.com/user-attachments/assets/25718768-6e3e-4330-a72a-22619659c669)
 
 ### Back
+
 ![back1](https://github.com/user-attachments/assets/75742bcb-e481-44d8-a64a-6c67ed9d6786)
 
 ### Bottom
+
 ![bottom1](https://github.com/user-attachments/assets/0e09c34b-4534-44d6-8ad3-04ed20f62dc4)
 
 ### Left
