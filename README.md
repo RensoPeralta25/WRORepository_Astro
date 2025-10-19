@@ -281,6 +281,324 @@ Clean cable management
 
 ## 💻 Sources (src)
 
+File: projecthub.arduino.cc
+
+## 🤖 What does this code do?
+
+This code controls an Arduino robot that can:
+- **Detect distances** to the left and right using ultrasonic sensors
+- **Identify colors** using a TCS3200/230 sensor
+- **Rotate** using a servo motor
+- **Communicate** with a computer via serial port
+
+## 🔌 Hardware Connections
+
+### Left Ultrasonic Sensor:
+- `TRIG` → Pin 7
+- `ECHO` → Pin 6
+- `VCC` → 5V
+- `GND` → GND
+
+### Right Ultrasonic Sensor:
+- `TRIG` → Pin 5
+- `ECHO` → Pin 4
+- `VCC` → 5V
+- `GND` → GND
+
+### TCS3200 Color Sensor:
+- `S0` → Pin 8
+- `S1` → Pin 9
+- `S2` → Pin 10
+- `S3` → Pin 11
+- `OUT` → Pin 12
+- `VCC` → 5V
+- `GND` → GND
+
+### Servo Motor:
+- Signal Wire → Pin 3
+- Red Wire → 5V
+- Brown/Black Wire → GND
+
+## 📚 Required Libraries
+
+Before uploading the code, install these Libraries:
+
+```cpp
+#include <Servo.h> // To control the servo
+#include <SR04.h> // For ultrasonic sensors
+```
+
+**Installation:** In the Arduino IDE, go to `Tools > Manage Libraries` and search for these libraries.
+
+## 💻 Step-by-Step Code Explanation
+
+### 1. Pin Definitions
+
+```cpp
+// ULTRASONIC PINS
+#define TRIG_PIN_L 7 // Left sensor trigger pin
+#define ECHO_PIN_L 6 // Left sensor echo pin
+#define TRIG_PIN_R 5 // Right sensor trigger pin
+#define ECHO_PIN_R 4 // Right sensor echo pin
+
+// COLOR SENSOR PINS
+#define s0 8 // Frequency setting
+#define s1 9 // Frequency setting
+#define s2 10 // Color filter selection
+#define s3 11 // Color filter selection
+#define out 12 // Frequency output
+
+// SERVO PIN
+#define SERVO_PIN 3 // Servo control pin
+```
+
+### 2. Variables globals
+
+```cpp
+int data = 0; // Stores the color frequency
+int degs; // Degrees for the servo
+long distance_usl; // Left sensor distance
+long distance_usr; // Right sensor distance
+```
+
+### 3. Object Creation
+
+```cpp
+SR04 ul = SR04(ECHO_PIN_L, TRIG_PIN_L); // Left ultrasonic sensor
+SR04 ur = SR04(ECHO_PIN_R, TRIG_PIN_R); // Right ultrasonic sensor
+Servo servo; // Servo object
+```
+
+### 4. Initial Setup
+
+```cpp
+void setup() {
+Serial.begin(9600); // Start serial communication
+
+// Configure color sensor pins
+pinMode(s0, OUTPUT);
+pinMode(s1, OUTPUT);
+pinMode(s2,OUTPUT);
+pinMode(s3,OUTPUT);
+pinMode(out,INPUT);
+
+// Sets frequency to 100% (maximum precision)
+digitalWrite(s0,HIGH);
+digitalWrite(s1,HIGH);
+
+// Starts servo in center position (70°)
+servo.attach(SERVO_PIN);
+servo.write(70);
+
+delay(2000); // Waits 2 seconds to stabilize
+}
+```
+
+### 5. Main Loop
+
+The code performs the following operations continuously:
+
+#### a) Servo control via serial
+```cpp
+if (stringComplete) {
+inputString.trim(); // Clears spaces
+degs = inputString.toInt(); // Converts text to numbers
+servo.write(degs); // Move the servo
+inputString = "";
+stringComplete = false;
+}
+```
+
+**Servo limits:**
+- Right: 30°
+- Left: 130°
+- Center: ~70-80°
+
+#### b) Reading ultrasonic sensors
+```cpp
+distance_usl = ul.Distance(); // Left distance in cm
+distance_usr = ur.Distance(); // Right distance in cm
+```
+
+#### c) Reading the color sensor
+
+The sensor detects the RGB components of the reflected light:
+
+```cpp
+// Detect RED
+digitalWrite(s2, LOW);
+digitalWrite(s3, LOW);
+int r = pulseIn(out, LOW);
+
+// Detect GREEN
+digitalWrite(s2, LOW);
+digitalWrite(s3, HIGH);
+int g = pulseIn(out, LOW);
+
+// Detect BLUE
+digitalWrite(s2, HIGH);
+digitalWrite(s3, HIGH);
+int b = pulseIn(out, LOW);
+```
+
+**How ​​does it work?**
+- S2/S3 combinations select which color to detect
+- `pulseIn` measures the pulse time (shorter time = greater color intensity)
+
+#### d) Sending data
+```cpp
+Serial.println(String(distance_usl) + "|" + String(distance_usr) + "|" +
+String(r) + "|" + String(g) + "|" + String(b));
+```
+
+Output format: `distance_left|distance_right|red|green|blue`
+
+### 6. Receiving serial commands
+
+```cpp
+void serialEvent() {
+while (Serial.available()) {
+char inChar = (char)Serial.read();
+if (inChar == '\n') {
+stringComplete = true; // Mark the command complete
+} else {
+inputString += inChar; // Construct the command
+}
+}
+}
+```
+
+This function is executed automatically when data arrives via serial.
+
+Code: bottom.py
+
+This Python script creates a simple button-controlled system that:
+
+Monitors a button for press events
+Controls an LED to indicate button state
+Launches another Python script when the button is pressed
+Prevents accidental multiple triggers with debouncing
+
+This is perfect for robots or projects where you need a physical button to start a specific program or routine.
+
+## Required Libraries
+This project uses the robot_hat library, which is typically included with SunFounder robot kits:
+bash# If not already installed:
+pip3 install robot-hat
+🔌 Hardware Connections
+Button Connection:
+
+One side → GPIO25 (labeled as "SW" on some boards)
+Other side → GND
+Internal pull-up resistor enabled (no external resistor needed)
+
+LED Connection:
+
+LED anode (long leg) → GPIO26 through 220Ω resistor
+LED cathode (short leg) → GND
+
+Circuit Diagram:
+GPIO25 (SW) ----[BUTTON]---- GND
+
+GPIO26 ----[220Ω]----[LED]---- GND
+              +         -
+Code Explanation - Line by Line
+
+1. Import Required Libraries
+pythonfrom robot_hat import Pin
+import time
+import os
+
+robot_hat: Provides easy GPIO control for Raspberry Pi
+time: For delays and preventing button bounce
+os: To execute system commands (run other scripts)
+
+2. Hardware Setup
+pythonbutton = Pin("SW", Pin.IN, Pin.PULL_UP)   # Button USR (GPIO25)
+led = Pin(26, Pin.OUT)                    # LED (GPIO26)
+Button Configuration:
+
+"SW": Special label for GPIO25 (user switch)
+Pin.IN: Sets pin as input
+Pin.PULL_UP: Enables internal pull-up resistor
+
+Button reads HIGH (1) when not pressed
+Button reads LOW (0) when pressed
+
+LED Configuration:
+
+26: GPIO pin number
+Pin.OUT: Sets pin as output
+
+3. Define Script Path
+python# Path to the file you want to execute
+script_path = "/home/admin/Documents/pruebaAbierta1.py"
+This is the full path to the Python script that will run when the button is pressed.
+Important: Update this path to match your script location
+
+5. Initial LED State
+pythonled.on()
+Turns on the LED when the program starts, indicating the system is ready.
+6. Main Control Loop
+pythonwhile True:
+    if button.value() == 1:  # Pressed
+        led.on()
+        os.system(f"python3 {script_path}")  # Execute the other script
+        time.sleep(0.5)  # Avoid repetition due to bounce
+    else:
+        led.off()
+    time.sleep(0.1)
+Loop Behavior:
+
+Button Check: button.value() returns:
+
+1 when button is pressed (connected to ground)
+0 when button is not pressed (pulled high)
+
+When Button is Pressed:
+
+LED turns ON
+External script executes using os.system()
+0.5 second delay prevents multiple triggers (debouncing)
+
+When Button is Released:
+
+LED turns OFF
+
+Loop Delay:
+
+0.1 second delay reduces CPU usage
+Provides responsive button checking (~10 checks per second)
+
+## How to Use This Code
+Step 1: Setup Your Hardware
+
+Connect the button to GPIO25 and GND
+Connect the LED to GPIO26 (with resistor) and GND
+Power up your Raspberry Pi
+
+Step 2: Prepare Your Scripts
+
+Save this launcher script (e.g., as button_launcher.py)
+Create or locate the script you want to launch
+Update the script_path variable with the correct path
+
+Step 3: Run the Launcher
+bashpython3 button_launcher.py
+Step 4: Test the System
+
+Press the button → LED lights up and your script runs
+Release the button → LED turns off
+The launcher continues running, ready for the next press
+
+## Use Cases
+This button launcher is perfect for:
+
+Robot startup sequences - Press to begin autonomous navigation
+Data collection triggers - Start sensor logging on demand
+Mode switching - Toggle between different robot behaviors
+Emergency stops - Launch shutdown or safe mode scripts
+Demo activation - Start presentation routines
 
 
 
