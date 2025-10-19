@@ -497,30 +497,26 @@ Launches another Python script when the button is pressed
 Prevents accidental multiple triggers with debouncing
 
 This is perfect for robots or projects where you need a physical button to start a specific program or routine.
-
-## Required Libraries
+Required Libraries
 This project uses the robot_hat library, which is typically included with SunFounder robot kits:
 bash# If not already installed:
 pip3 install robot-hat
-🔌 Hardware Connections
-Button Connection:
+```
 
-One side → GPIO25 (labeled as "SW" on some boards)
-Other side → GND
-Internal pull-up resistor enabled (no external resistor needed)
+## 🔌 Hardware Connections
 
-LED Connection:
+### Button Connection:
+- One side → GPIO25 (labeled as "SW" on some boards)
+- Other side → GND
+- Internal pull-up resistor enabled (no external resistor needed)
 
-LED anode (long leg) → GPIO26 through 220Ω resistor
-LED cathode (short leg) → GND
+### LED Connection:
+- LED anode (long leg) → GPIO26 through 220Ω resistor
+- LED cathode (short leg) → GND
 
-Circuit Diagram:
-GPIO25 (SW) ----[BUTTON]---- GND
-
-GPIO26 ----[220Ω]----[LED]---- GND
+```
               +         -
 Code Explanation - Line by Line
-
 1. Import Required Libraries
 pythonfrom robot_hat import Pin
 import time
@@ -542,6 +538,7 @@ Pin.PULL_UP: Enables internal pull-up resistor
 Button reads HIGH (1) when not pressed
 Button reads LOW (0) when pressed
 
+
 LED Configuration:
 
 26: GPIO pin number
@@ -551,12 +548,8 @@ Pin.OUT: Sets pin as output
 python# Path to the file you want to execute
 script_path = "/home/admin/Documents/pruebaAbierta1.py"
 This is the full path to the Python script that will run when the button is pressed.
-Important: Update this path to match your script location
-
-5. Initial LED State
-pythonled.on()
-Turns on the LED when the program starts, indicating the system is ready.
-6. Main Control Loop
+Important: Update this path to match your script location!
+4. Main Control Loop
 pythonwhile True:
     if button.value() == 1:  # Pressed
         led.on()
@@ -572,22 +565,27 @@ Button Check: button.value() returns:
 1 when button is pressed (connected to ground)
 0 when button is not pressed (pulled high)
 
+
 When Button is Pressed:
 
 LED turns ON
 External script executes using os.system()
 0.5 second delay prevents multiple triggers (debouncing)
 
+
 When Button is Released:
 
 LED turns OFF
+
 
 Loop Delay:
 
 0.1 second delay reduces CPU usage
 Provides responsive button checking (~10 checks per second)
 
-## How to Use This Code
+
+
+How to Use This Code
 Step 1: Setup Your Hardware
 
 Connect the button to GPIO25 and GND
@@ -608,7 +606,7 @@ Press the button → LED lights up and your script runs
 Release the button → LED turns off
 The launcher continues running, ready for the next press
 
-## Use Cases
+Use Cases
 This button launcher is perfect for:
 
 Robot startup sequences - Press to begin autonomous navigation
