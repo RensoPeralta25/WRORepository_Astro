@@ -7,10 +7,10 @@ led = Pin(26, Pin.OUT)                    # LED (GPIO26)
 
 # Ruta del archivo que quieres ejecutar
 script_path = "/home/admin/Documents/pruebaAbierta1.py"
-led.on()
+
 while True:
     if button.value() == 1:  # Presionado
-        led.on()
+       led.on()
         os.system(f"python3 {script_path}")  # Ejecuta el otro script
         time.sleep(0.5)  # Evita que se repita por rebote
     else:
