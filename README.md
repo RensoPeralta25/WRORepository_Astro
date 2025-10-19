@@ -113,7 +113,7 @@ This repository contains all the technical documentation, code, and design files
 
 ### 🚀 First Prototype Design
 
-<img width="611" height="300" alt="image" src="https://github.com/user-attachments/assets/3b4e8dc8-8090-4ecc-8f10-5860a87f4374" />
+<img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/3b4e8dc8-8090-4ecc-8f10-5860a87f4374" />
 
 Our initial chassis design was conceived with a compact, enclosed structure that prioritized sensor integration and component protection. The first prototype incorporated the following design elements:
 
@@ -162,16 +162,11 @@ We designed a dedicated ultrasonic sensor holder to accommodate the five sensors
 
 Front Wheel Support Structure
 
-<img width="187" height="256" alt="soporte rueda" src="https://github.com/user-attachments/assets/fea2f472-2f9c-48e3-ba95-0378646b812f" />
-
-<img width="248" height="175" alt="segundo soporte ruedas" src="https://github.com/user-attachments/assets/bb8ba79f-5925-48d6-8951-4cd918968b57" />
+<img width="200" height="200" alt="soporte rueda" src="https://github.com/user-attachments/assets/fea2f472-2f9c-48e3-ba95-0378646b812f" />
 
 Unlike the first design, the second prototype featured an improved front wheel support system. This component served a dual purpose: securely mounting the wheel assembly while providing a stable connection point to the vehicle's outer cover. The redesigned support improved structural rigidity and simplified the assembly process.
 
-Battery Mounting System
-
-One of the most significant oversights in the first prototype was the lack of a proper battery mounting solution. The original design did not allocate dedicated space or provide any securing mechanism for the power source, which posed risks of battery movement during operation and created organizational challenges within the chassis.
-For the second prototype, we designed a dedicated battery holder integrated into the chassis structure. This mounting bracket securely positioned the battery, preventing unwanted movement while maintaining accessibility for charging and replacement. The strategic placement also contributed to better weight distribution and a lower center of gravity.
+<img width="200" height="200" alt="segundo soporte ruedas" src="https://github.com/user-attachments/assets/bb8ba79f-5925-48d6-8951-4cd918968b57" />
 
 Second Prototype Assembly Views
 
