@@ -19,6 +19,22 @@ PUCMM, Dominican Republic <img width="15" height="15" alt="image" src="https://g
 
 This repository contains the complete documentation and resources for our autonomous vehicle designed for the WRO 2025 Future Engineers category from ASTRO team.
 
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Project Overview](#project-overview)
+- [Models](#models)
+  - [Main Components](#main-components)
+  - [First Prototype Design](#first-prototype-design)
+  - [Second Prototype Design](#second-prototype-design)
+- [Sources (src)](#sources-src)
+  - [Arduino Code](#what-does-this-code-do)
+  - [Button Launcher](#code-bottompy)
+  - [Autonomous Navigation](#code-openchallengepy)
+- [Schemes](#schemes)
+- [Vehicle Photos](#v-photos)
+- [Videos](#videos)
+
 ### Repository Structure
 
 * **`t-photos`** - Contains 2 photos of the team:
