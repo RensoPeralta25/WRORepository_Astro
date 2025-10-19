@@ -623,15 +623,20 @@ pip3 install picamera2
 ## System Architecture
 
 ```
-┌─────────────┐     Serial     ┌─────────────┐
-│  Raspberry  │◄──────────────►│   Arduino   │
+
+┌─────────────┐     Serial      ┌─────────────┐
+│  Raspberry  │◄──────────────► │   Arduino   │
 │     Pi      │    /dev/ttyACM0 │             │
-└──────┬──────┘                └──────┬──────┘
-       │                               │
-   ┌───┴───┐                    ┌─────┴─────┐
-   │Camera │                    │  Sensors  │
-   └───────┘                    │ & Servo   │
-                                └───────────┘
+└──────┬──────┘                 └──────┬──────┘
+       │                                │
+   ┌───┴───┐                     ┌─────┴─────┐
+   │  HAT  │                     │  Sensors  │
+   └───┬───┘                     │  & Servo  │
+       │                         └───────────┘
+   ┌───┴───┐
+   │ Motor │
+   └───────┘
+
 ```
 
 ## Key Parameters and Constants
@@ -1012,8 +1017,8 @@ def sensor_thread():
         data = leer_datos3()
         # Process sensors
 ```
+## Schemes
 
-
-
+## v-photos
 
 
