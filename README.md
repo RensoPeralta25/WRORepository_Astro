@@ -36,7 +36,7 @@ This repository contains the complete documentation and resources for our autono
 * **`videos`** - Contains `video.md` file with links to driving demonstration videos including:
   * Tests carried out
 
-* **`schemes`** - Contains electromechanical schematic diagrams (JPEG/PNG/PDF format) illustrating:
+* **`schemes`** - Contains electromechanical schematic diagrams (JPEG/PNG/PDF form``at) illustrating:
   *En proceso todavia*
 
 * **`src`** - Contains the control software source code:
@@ -115,15 +115,57 @@ This repository contains all the technical documentation, code, and design files
 
 <img width="611" height="300" alt="image" src="https://github.com/user-attachments/assets/3b4e8dc8-8090-4ecc-8f10-5860a87f4374" />
 
-Our first prototype was designed with a minimalist yet strategic approach to sensor integration and mechanical structure. The initial concept called for five ultrasonic sensors strategically distributed around the chassis to provide full 360-degree obstacle detection coverage: a front-facing center sensor for primary detection, two front-facing sensors angled at 45° (left and right) to cover side blind spots, and two side sensors at 90° for wall following and narrow-space detection.
+Our initial chassis design was conceived with a compact, enclosed structure that prioritized sensor integration and component protection. The first prototype incorporated the following design elements:
+
+*Sensor Layout*:
+The chassis featured mounting positions for four ultrasonic sensors strategically distributed to provide comprehensive obstacle detection coverage around the vehicle's perimeter.
+
+*Camera Integration*:
+A dedicated frontal mounting space was designed to house the Raspberry Pi Camera module, positioned to provide an optimal field of view for computer vision and object detection tasks.
+
+*Internal Electronics Compartment*:
+The original design included an enclosed internal cavity intended to house all electronic components, including the Raspberry Pi 5, Robot Hat v4, Arduino, sensors, and wiring. This approach aimed to protect the electronics from external interference and provide a clean, organized appearance.
+
+*Motor Placement*:
+A designated space was allocated for the DC motor; however, the initial design lacked detailed consideration for motor mounting mechanics, power transmission, and drivetrain integration.
+
+*Critical Design Oversight*:
+During the physical assembly phase, we encountered a significant spatial constraint that was not apparent in the CAD model. The combined height of the Raspberry Pi 5 board and the Robot Hat v4 interface board exceeded the available vertical clearance within the internal compartment. We had not physically measured these stacked components during the design phase, assuming the CAD dimensions would accommodate them.
+
+*Consequence*: The electronics could not fit inside the chassis as originally planned.
+
+*Immediate Solution*: We repositioned the Raspberry Pi 5 and Robot Hat v4 assembly on top of the chassis structure, securing them with standoffs and mounting brackets. While this modification solved the spatial issue and improved heat dissipation and accessibility, it exposed the electronics to potential impacts and increased the vehicle's center of gravity.
+
+Motor Integration Challenge:
+Similarly, the motor mounting system was insufficiently detailed in the first prototype. The lack of proper motor brackets, shaft alignment considerations, and drivetrain coupling mechanisms became evident during assembly.
+
+Resolution: This oversight necessitated a complete chassis redesign to properly integrate the motor system, optimize weight distribution, and ensure reliable power transmission to the wheels.
+
+This experience highlighted the critical importance of:
+
+*Physical measurement and test-fitting of components before finalizing CAD designs
+Accounting for tolerance stack-up and assembly clearances
+Detailed planning of mechanical subsystems (motor mounts, drivetrain, wiring routes)
+Iterative prototyping to validate design assumptions*
+
+These challenges directly informed the development of our second prototype, which addressed all identified spatial and mechanical integration issues.
 
 ### 🚀 Second Prototype Design
 
 After having thought about this sketch, for reasons of optimizing the position of sensors, we decided to completely change the design of our autonomous robot. As mentioned before, we wanted to have 6 ultrasonics, to help us have more vision.
 
-<img width="611" height="300" alt="image" src="https://github.com/user-attachments/assets/1e7915e2-b183-4115-982e-7833c104bb1c" />
+<img width="1073" height="1050" alt="image" src="https://github.com/user-attachments/assets/ba5936a6-692e-4b4e-a551-59d259048d1d" />
 
-<img width="611" height="300" alt="image" src="https://github.com/user-attachments/assets/5bd1bc20-b3f7-4b07-879e-12e24e8cacb6" />
+
+<img width="1280" height="602" alt="image" src="https://github.com/user-attachments/assets/85672b52-64fa-4433-bf74-9c037219ee7d" />
+
+
+<img width="1280" height="780" alt="image" src="https://github.com/user-attachments/assets/b5808995-2f03-4338-a36a-282f4b9e5cf4" />
+
+
+<img width="1280" height="841" alt="image" src="https://github.com/user-attachments/assets/34787083-5dad-4437-b0b3-238b8af1a8ce" />
+
+
 
 ## 🔧 Challenges and Solutions During Final Design
 
