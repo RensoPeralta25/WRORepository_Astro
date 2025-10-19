@@ -171,12 +171,12 @@ Unlike the first design, the second prototype featured an improved front wheel s
 Second Prototype Assembly Views
 
 <img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/ba5936a6-692e-4b4e-a551-59d259048d1d" />
-<img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/b5808995-2f03-4338-a36a-282f4b9e5cf4" />
-<img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/34787083-5dad-4437-b0b3-238b8af1a8ce" />
 
 🔧 Challenges and Solutions During Final Design
 
 During the development and assembly of our autonomous vehicle, we encountered several technical challenges that required creative solutions and design modifications. These challenges taught us valuable lessons about iterative design and practical engineering problem-solving.
+
+<img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/b5808995-2f03-4338-a36a-282f4b9e5cf4" />
 
 Dimensional Compliance: Reducing Vehicle Length
 
@@ -196,6 +196,8 @@ Front Section Reduction: We cut and removed approximately one inch from the fron
 Color Sensor Relocation: Instead of mounting the TCS 3200 color sensor externally on the front surface, we created a custom opening on the underside (bottom) of the chassis. This modification allowed us to recess the sensor into the chassis body, positioning it closer to the ground for optimal line detection while recovering valuable frontal space.
 
 Battery Holder Repositioning: We recessed the battery mounting bracket deeper into the chassis cavity, moving it further back from the front edge. This change not only reduced overall length but also improved weight distribution by centering the battery mass.
+
+<img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/34787083-5dad-4437-b0b3-238b8af1a8ce" />
 
 Ultrasonic Sensor Reduction: To accommodate the shortened chassis and address other constraints (detailed below), we removed three ultrasonic sensors from the design, further simplifying the frontal structure.
 
