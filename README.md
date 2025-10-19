@@ -36,7 +36,7 @@ This repository contains the complete documentation and resources for our autono
 
 ### Repository Structure
 
-* **`t-photos`** - Contains 2 photos of the team:
+* **`t-photos`** - Contains the photo of the team:
   * Official team photo with all members
 
 * **`v-photos`** - Contains 6 photos of the vehicle showcasing:
