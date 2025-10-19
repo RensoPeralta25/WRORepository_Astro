@@ -33,7 +33,6 @@ This repository contains the complete documentation and resources for our autono
   - [Autonomous Navigation](#code-openchallengepy)
 - [Schemes](#schemes)
 - [Vehicle Photos](#v-photos)
-- [Videos](#videos)
 
 ### Repository Structure
 
@@ -1034,7 +1033,115 @@ def sensor_thread():
 ```
 ## Schemes
 
-## v-photos
+Overview
+These schematics show the complete wiring connections for an autonomous robot using Arduino UNO R3 as the main microcontroller, featuring multiple sensors for navigation and environmental awareness.
+
+IMU (MPU-9250) I2C Connection Diagram
+
+<img width="600" height="600" alt="image" src="https://github.com/user-attachments/assets/e9896c07-4ff1-431c-bc00-c0d53ec151e7" />
+
+Components:
+
+IMU Digital Combo Board 6DOF (MPU-9250)
+Arduino UNO (Rev3)
+
+Connection Details:
+
+  Power Connections:
+
+    3.3V (Red wire) → Arduino 3.3V pin
+    GND (Green wire) → Arduino GND pin
+
+  I2C Communication:
+
+    SDA (Blue wire) → Arduino A4/SDA pin
+    SCL (Green wire) → Arduino A5/SCL pin
+
+Interrupt Pins (Not connected):
+
+INT0 and INT1 pins are available but not utilized
+
+Important Note: Although the IMU (MPU-9250) is physically connected and shown in the schematic, it is currently not being used in the code implementation due to time constraints. The hardware is ready for future integration when needed.
+
+Complete System Wiring Diagram
+This diagram shows the I2C connection between Arduino UNO R3 and the IMU module using the same color coding as diagrama 1.
+
+<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/8b804c77-050a-4598-a6ac-b304963fd570" />
+
+Image 3: Arduino with Color Sensor (TCS3200)
+
+<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/f4250617-63ba-47b6-86e9-118edf8e3875" />
+
+Components:
+
+Arduino UNO R3
+TCS3200 Color Sensor Module
+
+Physical Setup:
+
+The color sensor is connected via jumper wires
+Power is supplied through the Arduino's 5V and GND pins
+Data pins are connected to digital I/O pins for color frequency reading
+
+Dual Ultrasonic Sensors Configuration
+
+<img width="967" height="694" alt="image" src="https://github.com/user-attachments/assets/5b1c61c0-515c-46a1-bc4a-59629cb5ad99" />
+
+Components:
+
+Arduino UNO
+2x HC-SR04 Ultrasonic Sensors
+Breadboard (for power distribution)
+
+Wiring Configuration:
+
+Upper Ultrasonic Sensor (Left side):
+
+VCC → 5V power rail (Red wire)
+Trig → Digital Pin 7
+Echo → Digital Pin 6
+GND → Ground rail (Black wire)
+
+
+Lower Ultrasonic Sensor (Right side):
+
+VCC → 5V power rail (Red wire)
+Trig → Digital Pin 5
+Echo → Digital Pin 4
+GND → Ground rail (Black wire)
+
+
+Power Distribution:
+
+The breadboard is used to distribute 5V and GND from Arduino to both sensors
+This eliminates the need for multiple connections to Arduino's limited power pins
+
+Additional Resources
+Note: There is an additional file in the schemes folder called "Ultrasonic schematics" that shows the ultrasonic sensor connection diagram in a different format. This provides an alternative view of the same connections for better clarity.
+System Integration Summary
+
+Microcontroller: Arduino UNO R3 serves as the main processing unit
+
+Sensors:
+2x HC-SR04 Ultrasonic sensors (active and functioning)
+1x TCS3200 Color sensor (active and functioning)
+1x MPU-9250 IMU (connected but not implemented in software)
+
+### Communication:
+
+I2C bus for IMU (when implemented)
+Digital I/O for ultrasonic sensors
+Serial communication with Raspberry Pi via USB
+
+
+
+### Power Management
+
+All sensors operate at 5V except the IMU which requires 3.3V
+Breadboard used for clean power distribution
+Arduino provides regulated power to all components
+
+This modular design allows for easy troubleshooting and future expansion of the sensor array.
 
 ## v-photos
 
