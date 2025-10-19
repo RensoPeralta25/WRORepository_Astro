@@ -1,4 +1,4 @@
-# WRO Repository TEAM Astro
+![top1](https://github.com/user-attachments/assets/948bc412-3aba-46b7-a1e9-87a401227fd0)# WRO Repository TEAM Astro
 ## Team Information
 
 <p align="center">
@@ -1040,9 +1040,15 @@ def sensor_thread():
 
 | Front | Back | Top |
 |:---:|:---:|:---:|
-| ![front1](https://github.com/user-attachments/assets/0318e2d7-4889-47c2-86de-2119591dd0f9) | ![back1](https://github.com/user-attachments/assets/ccc94664-77cf-4bfe-9bcc-a42ed167cec5) | ![top1](https://github.com/user-attachments/assets/916d06ad-22fb-4e2b-940f-e923b13a9aa3) |
+| ![front1](![front1](https://github.com/user-attachments/assets/81d81761-712a-4719-9eb1-519410c04347)
+) | ![back1](![back1](https://github.com/user-attachments/assets/cc7cd928-7f59-462f-90f1-c30d6e74216a)
+) | ![top1](![top1](https://github.com/user-attachments/assets/2f3dc799-c14d-4839-ac85-325bc6cc29bc)
+) |
 | **Bottom** | **Left** | **Right** |
-| ![bottom1](https://github.com/user-attachments/assets/e378b7c8-8d15-4140-b687-c17829b1f49f) | ![left1](https://github.com/user-attachments/assets/80384227-bdfa-4069-bad2-54d82fae38aa) | ![right1](https://github.com/user-attachments/assets/e7cba101-a069-4fac-948f-0d064fc2f282) |
+| ![bottom1](![bottom1](https://github.com/user-attachments/assets/3eb145c6-18ad-4852-9fd7-3341247b22f5)
+) | ![left1](![left1](https://github.com/user-attachments/assets/8416e093-7ca6-4473-8a14-c78c681055a3)
+) | ![right1](![right1](https://github.com/user-attachments/assets/37525e4d-fc90-4691-b4ee-45a4e9e314a9)
+) |
 
 
 
