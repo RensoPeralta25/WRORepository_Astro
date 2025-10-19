@@ -51,7 +51,10 @@ This repository contains the complete documentation and resources for our autono
   * Tests carried out
 
 * **`schemes`** - Contains electromechanical schematic diagrams (JPEG/PNG/PDF form``at) illustrating:
-  *En proceso todavia*
+* IMU (MPU-9250) I2C Connection Diagram
+* Complete System Wiring Diagram
+* Dual Ultrasonic Sensors Configuration
+* Power Distribution
 
 * **`src`** - Contains the control software source code:
   * Open Challenge *
