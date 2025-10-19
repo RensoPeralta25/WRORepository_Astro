@@ -170,7 +170,7 @@ Unlike the first design, the second prototype featured an improved front wheel s
 
 Battery Mounting System
 
-<img width="[width]" height="[height]" alt="battery holder" src="[your battery holder image URL]" />
+<img width="[width]" height="[height]" alt="battery holder" />
 
 One of the most significant oversights in the first prototype was the lack of a proper battery mounting solution. The original design did not allocate dedicated space or provide any securing mechanism for the power source, which posed risks of battery movement during operation and created organizational challenges within the chassis.
 For the second prototype, we designed a dedicated battery holder integrated into the chassis structure. This mounting bracket securely positioned the battery, preventing unwanted movement while maintaining accessibility for charging and replacement. The strategic placement also contributed to better weight distribution and a lower center of gravity.
