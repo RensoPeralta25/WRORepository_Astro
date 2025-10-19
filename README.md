@@ -39,7 +39,6 @@ This repository contains the complete documentation and resources for our autono
 
 * **`t-photos`** - Contains 2 photos of the team:
   * Official team photo with all members
-  * Funny/casual photo with all team members
 
 * **`v-photos`** - Contains 6 photos of the vehicle showcasing:
   * Front view
@@ -56,7 +55,9 @@ This repository contains the complete documentation and resources for our autono
   *En proceso todavia*
 
 * **`src`** - Contains the control software source code:
-  *En proceso todavia*
+  * Open Challenge *
+  * projecthub.arduino.cc *
+  * bottom.py *
 
 * **`models`** - Contains 3D models and design files:
   * STL files for 3D-printed parts.
