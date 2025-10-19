@@ -1,4 +1,4 @@
-# WRO Repository TEAM Astro
+<img width="1280" height="960" alt="image" src="https://github.com/user-attachments/assets/8a778bf1-4257-4d54-aa7c-892368eccad2" /># WRO Repository TEAM Astro
 ## Team Information
 
 <p align="center">
@@ -179,6 +179,8 @@ Ultrasonic Sensor Holder Design
 
 We designed a dedicated ultrasonic sensor holder to accommodate the five sensors we intended to use: two positioned at the front for forward obstacle detection, one at the rear for reverse awareness, and two mounted mid-chassis for lateral coverage. While this configuration seemed optimal in theory, practical testing revealed a critical flaw—the two front-mounted sensors created physical interference with the front wheel assembly during steering maneuvers, necessitating their removal from the chassis.
 
+<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/93ea44b4-429a-4477-a062-d2a2c88e3db0" />
+
 Front Wheel Support Structure
 
 <img width="200" height="200" alt="soporte rueda" src="https://github.com/user-attachments/assets/fea2f472-2f9c-48e3-ba95-0378646b812f" />
@@ -201,6 +203,8 @@ Dimensional Compliance: Reducing Vehicle Length
 
 Critical Constraint: Competition regulations required vehicles to not exceed specific dimensional limits. Our second prototype measured 11.8 inches in length, exceeding the maximum allowed dimension by one full inch.
 
+<img width="1599" height="899" alt="image" src="https://github.com/user-attachments/assets/d7fdf793-fdcf-491c-bf89-58f1a4897cc3" />
+
 Problem: The chassis design, while functionally sound, was too long to comply with competition rules. The extended length was primarily due to:
 
 The frontal sensor mounting structure extending beyond necessary limits
@@ -221,12 +225,17 @@ Battery Holder Repositioning: We recessed the battery mounting bracket deeper in
 Ultrasonic Sensor Reduction: To accommodate the shortened chassis and address other constraints (detailed below), we removed three ultrasonic sensors from the design, further simplifying the frontal structure.
 
 Result: These combined modifications successfully reduced the vehicle length from 11.8 inches to 10.8 inches, achieving full compliance with competition regulations while maintaining all essential functionality.
+
 Arduino Pin Limitations and Sensor Reduction
+
 Problem: Our initial plan to use five ultrasonic sensors, combined with the color sensor, IMU, camera interface, servo motor, and DC motor driver, exceeded the available GPIO pins on the Arduino UNO R3. Each ultrasonic sensor requires two digital pins (trigger and echo), meaning five sensors would consume 10 pins alone, leaving insufficient pins for other critical components.
+
 Solution: We strategically reduced the ultrasonic sensor count from five to two, retaining only the most essential sensors for navigation:
 
 One front-facing sensor for primary obstacle detection
 One side-mounted sensor for wall-following and lateral awareness
+
+<img width="600" height="200" alt="image" src="https://github.com/user-attachments/assets/97da7362-3528-4118-881d-94339507c4b2" />
 
 This reduction freed up six digital pins (3 sensors × 2 pins each), allowing all remaining components to be properly connected without requiring a larger microcontroller.
 Ultrasonic Sensor Interface Selection: Raspberry Pi vs. Arduino
