@@ -4,8 +4,10 @@
 
 Team name: Astro
 
+<p align="center">
+  <img width="400" height="400" alt="logo 2" src="https://github.com/user-attachments/assets/ba2f4f4b-e1bd-4858-845c-bd96b7c35279" />
+</p>
 
-                               <img width="400" height="400" alt="logo 2" src="https://github.com/user-attachments/assets/ba2f4f4b-e1bd-4858-845c-bd96b7c35279" />
 </n>
 
 📜 Documenter: Renso Isael Peralta Ureña (Right)
