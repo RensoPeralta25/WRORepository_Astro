@@ -4,11 +4,11 @@
 
 Team name: Astro
 
-📜 Renso Isael Peralta Ureña (Right)
+📜 Documenter: Renso Isael Peralta Ureña (Right)
 
-🧑‍🔧 José Miguel Comprés Arias (Left)
+🧑‍🔧 Programmer: José Miguel Comprés Arias (Left)
 
-🧑‍🔧 Yoel Samuel Castillo Castillo (Front)
+🧑‍🔧 Mechanic: Yoel Samuel Castillo Castillo (Front)
 
 ![team photo](https://github.com/user-attachments/assets/d0d88cb5-2361-492b-bfa1-58ac8055714e)
 
@@ -16,7 +16,7 @@ PUCMM, Dominican Republic <img width="15" height="15" alt="image" src="https://g
 
 ## Content Organization
 
-This repository contains the complete documentation and resources for our autonomous vehicle designed for the WRO 2025 Future Engineers category.
+This repository contains the complete documentation and resources for our autonomous vehicle designed for the WRO 2025 Future Engineers category from ASTRO team.
 
 ### Repository Structure
 
@@ -33,52 +33,70 @@ This repository contains the complete documentation and resources for our autono
   * Bottom view
 
 * **`videos`** - Contains `video.md` file with links to driving demonstration videos including:
-  * Challenge #1
-  * Challenge #2
+  * Tests carried out
 
 * **`schemes`** - Contains electromechanical schematic diagrams (JPEG/PNG/PDF format) illustrating:
-  * Electronic components layout (Raspberry Pi 5, Arduino Mega, Robot Hat v4)
-  * Sensor connections (4 ultrasonic sensors, color sensor, IMU, camera)
-  * Motor connections and power distribution
-  * Complete wiring diagram showing all component interconnections
+  *En proceso todavia*
 
 * **`src`** - Contains the control software source code:
-  * Python scripts for Raspberry Pi 5 (high-level processing, computer vision)
-  * Arduino code for real-time sensor and motor control
-  * Communication protocols between Raspberry Pi and Arduino
-  * Sensor processing modules (ultrasonic, color sensor, IMU)
-  * Navigation and decision-making algorithms
+  *En proceso todavia*
 
 * **`models`** - Contains 3D models and design files:
-  * CAD files for chassis components
-  * STL files for 3D-printed parts (sensor mounts, camera holder, structural elements)
-  * First prototype design files
-  * Second prototype design files (optimized version)
+  * STL files for 3D-printed parts.
+  * First prototype design files.
+  * Second prototype design files (optimized version).
 
 ## Introduction
 This project presents our autonomous vehicle designed for the 2025 World Robot Olympiad (WRO) competition in the Future Engineers category. The robot is fully autonomous, capable of navigating a closed course, detecting and avoiding objects, and parking itself at the end of the course.
 
-### What Makes Our Design Unique
+AUTONOMOUS NAVIGATION ROBOT
 
-Our vehicle stands out for its redundant and robust sensor architecture: it integrates four strategically positioned ultrasonic sensors that provide full 360° perimeter detection, a color sensor for precise object identification, and an IMU (Inertial Measurement Unit) that allows the robot to maintain orientation and stability in real time.
+Official project repository for ASTRO
+## Project Overview
+This repository contains all the technical documentation, code, and design files for our autonomous navigation robot developed for the WRO Future Engineers. Our project focuses on creating a practical and efficient self-driving vehicle capable of navigating complex environments using sensor fusion and intelligent decision-making algorithms.
+## Design Philosophy
+Our approach emphasizes functionality and reliability over complexity. The robot's architecture was designed with the following principles in mind:
 
-The brain of the system is a state-of-the-art Raspberry Pi 5 working in conjunction with an Arduino Mega via the Robot Hat v4, creating a dual architecture that separates high-level processing (vision and decision-making) from real-time control (motors and sensors). This hybrid configuration guarantees ultra-fast responses and system stability.
+Accessible construction: Components are readily available and the assembly process is straightforward, making the platform ideal for educational purposes and rapid prototyping.
 
-Visually, the robot features a futuristic, technological design in white, reflecting innovation and modernity. The precision servo steering system ensures smooth and accurate maneuvers, while data fusion from multiple sensors enables reliable autonomous navigation even in challenging track conditions.
+Efficient sensor integration: Strategic placement of two ultrasonic sensors, combined with a color sensor and IMU, provides comprehensive environmental awareness without redundant hardware.
+
+Modular electronics: The dual-processor system (Raspberry Pi 5 + Arduino UNO R3) separates high-level processing from real-time control, ensuring responsive performance and easy troubleshooting.
+
+Iterative improvement: Each design iteration addressed specific challenges identified in testing, particularly sensor positioning and chassis balance.
 
 ## ⚙️ Models
 
 ### Components
 - **Main Controller**: Raspberry Pi 5 (high-level processing)
+<img width="600" height="392" alt="image" src="https://github.com/user-attachments/assets/685aa0d4-bf54-4382-9f8d-9cf324937124" />
+
 - **Real-time Controller**: Arduino UNO R3
+<img width="600" height="392" alt="image" src="https://github.com/user-attachments/assets/24b10c39-544b-4a5b-ac41-419f63239714" />
+
 - **Interface Board**: Robot Hat v4
+<img width="600" height="392" alt="image" src="https://github.com/user-attachments/assets/3f94f7af-df98-439d-bea3-c3194a26fa7b" />
+
 - **Sensors**:
   - 2x Ultrasonic sensors HCSR04 (Bilateral coverage)
+  <img width="600" height="392" alt="image" src="https://github.com/user-attachments/assets/590916af-7b44-45c0-85b3-133d8bbc135b" />
+
   - 1x Color sensor TCS 3200 (line detection)
+ <img width="600" height="392" alt="image" src="https://github.com/user-attachments/assets/d89a39e0-f70a-46fc-9dfa-999278ceed20" />
+
   - 1x IMU MPU-9250 (orientation)
+<img width="600" height="392" alt="image" src="https://github.com/user-attachments/assets/0a14f562-5c5b-47a6-8f5e-9692b0a819a5" />
+ 
   - 1x Raspberry Pi Camera (computer vision)
+<img width="600" height="392" alt="image" src="https://github.com/user-attachments/assets/cf31cf94-6689-4a6c-8263-90a4608be925" />
+
 - **Motors**: TT Motor x1
+<img width="600" height="392" alt="image" src="https://github.com/user-attachments/assets/5c7384f9-a6d9-488a-8b4a-adbc57c7ab80" />
+
 - **Power Source**: Battery
+<img width="600" height="392" alt="image" src="https://github.com/user-attachments/assets/dab5331b-5598-41fc-affd-9bf23f97e514" />
+
+
 
 ### 🚀 First Prototype Design
 
