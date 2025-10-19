@@ -4,6 +4,9 @@
 
 Team name: Astro
 
+<img width="664" height="613" alt="logo 2" src="https://github.com/user-attachments/assets/ba2f4f4b-e1bd-4858-845c-bd96b7c35279" />
+
+
 📜 Documenter: Renso Isael Peralta Ureña (Right)
 
 🧑‍🔧 Programmer: José Miguel Comprés Arias (Left)
@@ -79,23 +82,28 @@ Iterative improvement: Each design iteration addressed specific challenges ident
 
 - **Sensors**:
   - 2x Ultrasonic sensors HCSR04 (Bilateral coverage)
+  
   <img width="600" height="392" alt="image" src="https://github.com/user-attachments/assets/590916af-7b44-45c0-85b3-133d8bbc135b" />
 
   - 1x Color sensor TCS 3200 (line detection)
- <img width="600" height="392" alt="image" src="https://github.com/user-attachments/assets/d89a39e0-f70a-46fc-9dfa-999278ceed20" />
+  
+  <img width="600" height="392" alt="image" src="https://github.com/user-attachments/assets/d89a39e0-f70a-46fc-9dfa-999278ceed20" />
 
   - 1x IMU MPU-9250 (orientation)
-<img width="600" height="392" alt="image" src="https://github.com/user-attachments/assets/0a14f562-5c5b-47a6-8f5e-9692b0a819a5" />
+  
+  <img width="600" height="392" alt="image" src="https://github.com/user-attachments/assets/0a14f562-5c5b-47a6-8f5e-9692b0a819a5" />
  
   - 1x Raspberry Pi Camera (computer vision)
-<img width="600" height="392" alt="image" src="https://github.com/user-attachments/assets/cf31cf94-6689-4a6c-8263-90a4608be925" />
+  
+  <img width="600" height="392" alt="image" src="https://github.com/user-attachments/assets/cf31cf94-6689-4a6c-8263-90a4608be925" />
 
 - **Motors**: TT Motor x1
-<img width="600" height="392" alt="image" src="https://github.com/user-attachments/assets/5c7384f9-a6d9-488a-8b4a-adbc57c7ab80" />
+  
+  <img width="600" height="392" alt="image" src="https://github.com/user-attachments/assets/5c7384f9-a6d9-488a-8b4a-adbc57c7ab80" />
 
 - **Power Source**: Battery
-<img width="600" height="392" alt="image" src="https://github.com/user-attachments/assets/dab5331b-5598-41fc-affd-9bf23f97e514" />
-
+  
+  <img width="600" height="392" alt="image" src="https://github.com/user-attachments/assets/dab5331b-5598-41fc-affd-9bf23f97e514" />
 
 
 ### 🚀 First Prototype Design
