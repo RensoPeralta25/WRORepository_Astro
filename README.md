@@ -62,7 +62,7 @@ This repository contains the complete documentation and resources for our autono
   * bottom.py
 
 * **`models`** - Contains 3D models and design files:
-  * STL files for 3D-printed parts.
+  * Files for 3D-printed parts.
   * First prototype design files.
   * Second prototype design files (optimized version).
 
