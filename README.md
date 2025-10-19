@@ -4,13 +4,15 @@
 
 Team name: Astro
 
-. Renso Isael Peralta Ureña
+📜 Renso Isael Peralta Ureña (Right)
 
-. José Miguel Comprés Arias
+🧑‍🔧 José Miguel Comprés Arias (Left)
 
-. Yoel Samuel Castillo Castillo
+🧑‍🔧 Yoel Samuel Castillo Castillo (Front)
 
-PUCMM, Dominican Republic
+![team photo](https://github.com/user-attachments/assets/d0d88cb5-2361-492b-bfa1-58ac8055714e)
+
+PUCMM, Dominican Republic <img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/cacb6bc7-76ba-49e5-9df6-87c6d36aa328" />
 
 ## Content Organization
 
