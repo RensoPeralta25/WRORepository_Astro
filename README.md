@@ -161,6 +161,7 @@ Ultrasonic Sensor Holder Design
 We designed a dedicated ultrasonic sensor holder to accommodate the five sensors we intended to use: two positioned at the front for forward obstacle detection, one at the rear for reverse awareness, and two mounted mid-chassis for lateral coverage. While this configuration seemed optimal in theory, practical testing revealed a critical flaw—the two front-mounted sensors created physical interference with the front wheel assembly during steering maneuvers, necessitating their removal from the chassis.
 
 Front Wheel Support Structure
+
 <img width="187" height="256" alt="soporte rueda" src="https://github.com/user-attachments/assets/fea2f472-2f9c-48e3-ba95-0378646b812f" />
 
 <img width="248" height="175" alt="segundo soporte ruedas" src="https://github.com/user-attachments/assets/bb8ba79f-5925-48d6-8951-4cd918968b57" />
@@ -173,6 +174,7 @@ Battery Mounting System
 
 One of the most significant oversights in the first prototype was the lack of a proper battery mounting solution. The original design did not allocate dedicated space or provide any securing mechanism for the power source, which posed risks of battery movement during operation and created organizational challenges within the chassis.
 For the second prototype, we designed a dedicated battery holder integrated into the chassis structure. This mounting bracket securely positioned the battery, preventing unwanted movement while maintaining accessibility for charging and replacement. The strategic placement also contributed to better weight distribution and a lower center of gravity.
+
 Second Prototype Assembly Views
 
 <img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/ba5936a6-692e-4b4e-a551-59d259048d1d" />
@@ -180,6 +182,7 @@ Second Prototype Assembly Views
 <img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/34787083-5dad-4437-b0b3-238b8af1a8ce" />
 
 🔧 Challenges and Solutions During Final Design
+
 During the development and assembly of our autonomous vehicle, we encountered several technical challenges that required creative solutions and design modifications. These challenges taught us valuable lessons about iterative design and practical engineering problem-solving.
 
 Dimensional Compliance: Reducing Vehicle Length
