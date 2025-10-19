@@ -199,8 +199,11 @@ Solution - Comprehensive Chassis Modification:
 We implemented a series of strategic modifications to reduce the vehicle's footprint:
 
 Front Section Reduction: We cut and removed approximately one inch from the front portion of the chassis, eliminating excess material while maintaining structural integrity for the camera mount and essential frontal components.
+
 Color Sensor Relocation: Instead of mounting the TCS 3200 color sensor externally on the front surface, we created a custom opening on the underside (bottom) of the chassis. This modification allowed us to recess the sensor into the chassis body, positioning it closer to the ground for optimal line detection while recovering valuable frontal space.
+
 Battery Holder Repositioning: We recessed the battery mounting bracket deeper into the chassis cavity, moving it further back from the front edge. This change not only reduced overall length but also improved weight distribution by centering the battery mass.
+
 Ultrasonic Sensor Reduction: To accommodate the shortened chassis and address other constraints (detailed below), we removed three ultrasonic sensors from the design, further simplifying the frontal structure.
 
 Result: These combined modifications successfully reduced the vehicle length from 11.8 inches to 10.8 inches, achieving full compliance with competition regulations while maintaining all essential functionality.
