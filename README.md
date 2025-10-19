@@ -154,17 +154,18 @@ These challenges directly informed the development of our second prototype, whic
 
 After having thought about this sketch, for reasons of optimizing the position of sensors, we decided to completely change the design of our autonomous robot. As mentioned before, we wanted to have 6 ultrasonics, to help us have more vision.
 
-<img width="1073" height="1050" alt="image" src="https://github.com/user-attachments/assets/ba5936a6-692e-4b4e-a551-59d259048d1d" />
+Therefore, we designed this ultrasonic holder.
+
+<img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/ba5936a6-692e-4b4e-a551-59d259048d1d" />
 
 
-<img width="1280" height="602" alt="image" src="https://github.com/user-attachments/assets/85672b52-64fa-4433-bf74-9c037219ee7d" />
+<img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/85672b52-64fa-4433-bf74-9c037219ee7d" />
 
 
-<img width="1280" height="780" alt="image" src="https://github.com/user-attachments/assets/b5808995-2f03-4338-a36a-282f4b9e5cf4" />
+<img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/b5808995-2f03-4338-a36a-282f4b9e5cf4" />
 
 
-<img width="1280" height="841" alt="image" src="https://github.com/user-attachments/assets/34787083-5dad-4437-b0b3-238b8af1a8ce" />
-
+<img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/34787083-5dad-4437-b0b3-238b8af1a8ce" />
 
 
 ## 🔧 Challenges and Solutions During Final Design
