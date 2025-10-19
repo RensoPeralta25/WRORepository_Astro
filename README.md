@@ -1,4 +1,4 @@
-![top1](https://github.com/user-attachments/assets/948bc412-3aba-46b7-a1e9-87a401227fd0)# WRO Repository TEAM Astro
+# WRO Repository TEAM Astro
 ## Team Information
 
 <p align="center">
