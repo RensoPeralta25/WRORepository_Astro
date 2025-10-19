@@ -150,110 +150,122 @@ Iterative prototyping to validate design assumptions*
 
 These challenges directly informed the development of our second prototype, which addressed all identified spatial and mechanical integration issues.
 
-### 🚀 Second Prototype Design
-
-After having thought about this sketch, for reasons of optimizing the position of sensors, we decided to completely change the design of our autonomous robot. As mentioned before, we wanted to have 5 ultrasonics, to help us have more vision.
-
+🚀 Second Prototype Design
+After evaluating the limitations of our first prototype, we decided to completely redesign the chassis to optimize sensor positioning and improve overall functionality. Building on lessons learned, we planned to incorporate five ultrasonic sensors for enhanced environmental awareness.
+Ultrasonic Sensor Holder Design
 <img width="608" height="246" alt="chasis largo" src="https://github.com/user-attachments/assets/1977c2ee-f1ab-4214-951c-4f69846def59" />
-
-We designed an ultrasonic holder, in order to create an espace for the 5 sensors that we planned to use. Two in the front part of the robot, one in the back and two more in the middle. We thought this was a good idea, but it was not. The two sensors in the front part interfered with the front wheels, so we had to move it from the chassis.
-
-Another thing that we design diferently compare to the first design is the support for the front wheels. This part helped us to secure the wheel with the cover of the vehicle. 
-
+We designed a dedicated ultrasonic sensor holder to accommodate the five sensors we intended to use: two positioned at the front for forward obstacle detection, one at the rear for reverse awareness, and two mounted mid-chassis for lateral coverage. While this configuration seemed optimal in theory, practical testing revealed a critical flaw—the two front-mounted sensors created physical interference with the front wheel assembly during steering maneuvers, necessitating their removal from the chassis.
+Front Wheel Support Structure
 <img width="187" height="256" alt="soporte rueda" src="https://github.com/user-attachments/assets/fea2f472-2f9c-48e3-ba95-0378646b812f" />
-
 <img width="248" height="175" alt="segundo soporte ruedas" src="https://github.com/user-attachments/assets/bb8ba79f-5925-48d6-8951-4cd918968b57" />
-
+Unlike the first design, the second prototype featured an improved front wheel support system. This component served a dual purpose: securely mounting the wheel assembly while providing a stable connection point to the vehicle's outer cover. The redesigned support improved structural rigidity and simplified the assembly process.
+Battery Mounting System
+<img width="[width]" height="[height]" alt="battery holder" src="[your battery holder image URL]" />
+One of the most significant oversights in the first prototype was the lack of a proper battery mounting solution. The original design did not allocate dedicated space or provide any securing mechanism for the power source, which posed risks of battery movement during operation and created organizational challenges within the chassis.
+For the second prototype, we designed a dedicated battery holder integrated into the chassis structure. This mounting bracket securely positioned the battery, preventing unwanted movement while maintaining accessibility for charging and replacement. The strategic placement also contributed to better weight distribution and a lower center of gravity.
+Second Prototype Assembly Views
 <img width="1073" height="1050" alt="image" src="https://github.com/user-attachments/assets/b5c16143-61ba-4d41-b979-f0399f586681" />
-
 <img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/ba5936a6-692e-4b4e-a551-59d259048d1d" />
-
 <img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/b5808995-2f03-4338-a36a-282f4b9e5cf4" />
-
-
 <img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/34787083-5dad-4437-b0b3-238b8af1a8ce" />
 
-
-## 🔧 Challenges and Solutions During Final Design
-
+🔧 Challenges and Solutions During Final Design
 During the development and assembly of our autonomous vehicle, we encountered several technical challenges that required creative solutions and design modifications. These challenges taught us valuable lessons about iterative design and practical engineering problem-solving.
+Dimensional Compliance: Reducing Vehicle Length
+Critical Constraint: Competition regulations required vehicles to not exceed specific dimensional limits. Our second prototype measured 11.8 inches in length, exceeding the maximum allowed dimension by one full inch.
+Problem: The chassis design, while functionally sound, was too long to comply with competition rules. The extended length was primarily due to:
 
+The frontal sensor mounting structure extending beyond necessary limits
+The battery holder positioned too far forward
+Overall chassis design that prioritized component spacing over compactness
+
+Solution - Comprehensive Chassis Modification:
+We implemented a series of strategic modifications to reduce the vehicle's footprint:
+
+Front Section Reduction: We cut and removed approximately one inch from the front portion of the chassis, eliminating excess material while maintaining structural integrity for the camera mount and essential frontal components.
+Color Sensor Relocation: Instead of mounting the TCS 3200 color sensor externally on the front surface, we created a custom opening on the underside (bottom) of the chassis. This modification allowed us to recess the sensor into the chassis body, positioning it closer to the ground for optimal line detection while recovering valuable frontal space.
+Battery Holder Repositioning: We recessed the battery mounting bracket deeper into the chassis cavity, moving it further back from the front edge. This change not only reduced overall length but also improved weight distribution by centering the battery mass.
+Ultrasonic Sensor Reduction: To accommodate the shortened chassis and address other constraints (detailed below), we removed three ultrasonic sensors from the design, further simplifying the frontal structure.
+
+Result: These combined modifications successfully reduced the vehicle length from 11.8 inches to 10.8 inches, achieving full compliance with competition regulations while maintaining all essential functionality.
+Arduino Pin Limitations and Sensor Reduction
+Problem: Our initial plan to use five ultrasonic sensors, combined with the color sensor, IMU, camera interface, servo motor, and DC motor driver, exceeded the available GPIO pins on the Arduino UNO R3. Each ultrasonic sensor requires two digital pins (trigger and echo), meaning five sensors would consume 10 pins alone, leaving insufficient pins for other critical components.
+Solution: We strategically reduced the ultrasonic sensor count from five to two, retaining only the most essential sensors for navigation:
+
+One front-facing sensor for primary obstacle detection
+One side-mounted sensor for wall-following and lateral awareness
+
+This reduction freed up six digital pins (3 sensors × 2 pins each), allowing all remaining components to be properly connected without requiring a larger microcontroller.
+Ultrasonic Sensor Interface Selection: Raspberry Pi vs. Arduino
+Problem: During initial testing, we attempted to interface the ultrasonic sensors directly with the Raspberry Pi 5 GPIO pins. However, we encountered persistent issues with unreliable distance readings and inconsistent sensor response times. The problem stemmed from the Raspberry Pi's non-real-time operating system (Linux), which cannot guarantee precise microsecond-level timing required for accurate ultrasonic echo pulse measurement.
+Solution: We decided to connect the ultrasonic sensors to the Arduino UNO R3 instead of the Raspberry Pi. The Arduino's real-time microcontroller architecture provides deterministic timing, ensuring accurate pulse duration measurements. The Arduino reads the sensor data and transmits processed distance values to the Raspberry Pi via serial communication (UART) through the Robot Hat v4 interface.
+Technical Justification:
+
+Arduino UNO R3: Real-time operation with precise microsecond timing for reliable ultrasonic measurements
+Raspberry Pi 5: Handles higher-level processing (computer vision, navigation logic, decision-making) without timing-critical sensor interfacing
+
+This division of responsibilities between the two processors optimized system reliability and performance.
+Color Sensor Integration
 One of the first challenges we faced was fitting the color sensor into its designated mounting space. The original CAD design did not account for the actual physical dimensions and connector orientation of the TCS 3200 color sensor module.
+Problem: The color sensor module, including its I2C connector pins, exceeded the allocated space in the front sensor mount structure. The rigid PCB design prevented us from repositioning it without structural modifications.
+Solution: We used a soldering iron to carefully create a custom opening in the bottom of the plastic chassis. This allowed us to recess the sensor body while keeping the optical window at the optimal height and angle for line detection. The modification maintained the sensor's downward-facing orientation (approximately 30-45° angle) necessary for accurate color detection of the track surface while minimizing ambient light interference.
+Result: The color sensor was successfully integrated and provided reliable line detection throughout testing while contributing to the overall length reduction of the chassis.
+Rear Wheel Support Structure Failure
+Problem: The 3D-printed rear wheel support arms, designed to hold rubber tires in place, experienced structural failure during initial testing. The stress concentration points where the tires connected to the motor shafts caused the plastic supports to crack and eventually break. This was likely due to:
 
-**Problem:** The color sensor module, including its I2C connector pins, exceeded the allocated space in the front sensor mount structure. The rigid PCB design prevented us from repositioning it without structural modifications.
+Insufficient wall thickness in the 3D-printed part
+Vibrations from the DC motors during operation
+Lateral forces during turning maneuvers
 
-**Solution:** We used a soldering iron to carefully create a custom opening in the plastic chassis mount. This allowed us to recess the sensor body while keeping the optical window at the optimal height and angle for line detection. The modification maintained the sensor's downward-facing orientation (approximately 30-45° angle) necessary for accurate color detection of the track surface while minimizing ambient light interference.
+Solution: Unable to quickly redesign and reprint the support structure, we implemented an emergency repair using a soldering iron technique:
 
-**Result:** The color sensor was successfully integrated and provided reliable line detection throughout testing.
+We carefully heated the soldering iron to a temperature suitable for melting PLA/ABS plastic
+We repositioned the broken rubber tire holders against the motor mounting arms
+We used the soldering iron tip to "weld" the plastic pieces together, creating a reinforced joint
+We added additional plastic material where needed to strengthen critical stress points
 
-#### Ultrasonic Sensor Reduction
-
-Our initial design included six HCSR04 ultrasonic sensors for comprehensive 360° obstacle detection coverage. However, physical constraints and spatial optimization led to significant changes.
-
-**Problem:** The front-mounted color sensor required substantial space in the frontal area of the chassis. Installing the two front-angled ultrasonic sensors (positioned at 45° left and right) would have created physical interference with both the color sensor mount and its cable routing. Additionally, the overall chassis space was more limited than anticipated in the CAD model.
-
-**Solution:** We strategically removed four of the six ultrasonic sensors:
-- **Two front sensors (45° angled):** Removed due to space conflict with the color sensor assembly
-- **Two additional sensors:** Removed to optimize weight distribution and simplify wiring complexity
-
-We retained only the two most critical ultrasonic sensors:
-- **Front-center sensor:** For primary forward obstacle detection
-- **One side sensor:** For wall-following and lateral distance measurement
-
-**Trade-off Analysis:** While this reduced our sensor coverage from 360° to bilateral coverage, our testing revealed that the remaining sensors, combined with the camera's computer vision capabilities and IMU data, still provided sufficient environmental awareness for successful navigation.
-
-#### Rear Wheel Support Structure Failure
-
-**Problem:** The 3D-printed rear wheel support arms, designed to hold rubber tires in place, experienced structural failure during initial testing. The stress concentration points where the tires connected to the motor shafts caused the plastic supports to crack and eventually break. This was likely due to:
-
-- Insufficient wall thickness in the 3D-printed part
-- Vibrations from the DC motors during operation
-- Lateral forces during turning maneuvers
-
-**Solution:** Unable to quickly redesign and reprint the support structure, we implemented an emergency repair using a soldering iron technique:
-1. We carefully heated the soldering iron to a temperature suitable for melting PLA/ABS plastic
-2. We repositioned the broken rubber tire holders against the motor mounting arms
-3. We used the soldering iron tip to "weld" the plastic pieces together, creating a reinforced joint
-4. We added additional plastic material where needed to strengthen critical stress points
-
-**Result:** This field repair successfully restored structural integrity and proved durable enough for the remainder of our testing and competition preparation. However, this experience highlighted the importance of stress testing 3D-printed components and designing with appropriate safety margins for dynamic loads.
-
+Result: This field repair successfully restored structural integrity and proved durable enough for the remainder of our testing and competition preparation. However, this experience highlighted the importance of stress testing 3D-printed components and designing with appropriate safety margins for dynamic loads.
+Microcontroller Selection Optimization
 Our electronic architecture underwent a significant simplification during the final assembly phase.
+Original Plan: Arduino Mega 2560
 
-**Original Plan:** Arduino Mega 2560
-- **Reason for selection:** The Mega provides 54 digital I/O pins and 16 analog inputs, which we initially believed necessary to accommodate six ultrasonic sensors (12 digital pins), the color sensor (I2C), the IMU (I2C), servo motors (2 PWM pins), and the DC motor driver (4 digital pins).
+Reason for selection: The Mega provides 54 digital I/O pins and 16 analog inputs, which we initially believed necessary to accommodate multiple ultrasonic sensors, the color sensor (I2C), the IMU (I2C), servo motors (PWM pins), and the DC motor driver.
 
-**Modified Implementation:** Arduino Uno R3
-- **Reason for change:** After reducing the ultrasonic sensor count from six to two, the total pin requirement decreased significantly:
-  - 2 ultrasonic sensors: 4 digital pins (2 trigger + 2 echo)
-  - Color sensor: I2C bus (SDA/SCL) - 2 pins
-  - IMU (BNO055): I2C bus (shared) - 0 additional pins
-  - Servo motor (steering): 1 PWM pin
-  - DC motor driver: 2-4 digital pins
-  - **Total: approximately 9-11 pins**
+Modified Implementation: Arduino UNO R3
 
-The Arduino Uno R3 provides 14 digital I/O pins and 6 analog inputs, which is more than sufficient for our reduced configuration. This change offered several advantages:
-- **Reduced physical footprint:** The Uno is smaller and lighter than the Mega
-- **Improved space utilization:** Easier to fit within the chassis alongside other components
-- **Cost optimization:** Lower component cost without sacrificing functionality
-- **Simplified wiring:** Fewer unused pins reduced wiring complexity
+Reason for change: After reducing the ultrasonic sensor count to two, the total pin requirement decreased significantly:
 
-### Power Distribution Solution
+2 ultrasonic sensors: 4 digital pins (2 trigger + 2 echo)
+Color sensor: I2C bus (SDA/SCL) - 2 pins
+IMU: I2C bus (shared) - 0 additional pins
+Servo motor (steering): 1 PWM pin
+DC motor driver: 2-4 digital pins
+Total: approximately 9-11 pins
 
+
+
+The Arduino UNO R3 provides 14 digital I/O pins and 6 analog inputs, which is more than sufficient for our reduced configuration. This change offered several advantages:
+
+Reduced physical footprint: The Uno is smaller and lighter than the Mega
+Improved space utilization: Easier to fit within the compact chassis
+Cost optimization: Lower component cost without sacrificing functionality
+Simplified wiring: Fewer unused pins reduced wiring complexity
+Real-time sensor reliability: Better ultrasonic sensor performance compared to Raspberry Pi GPIO
+
+Power Distribution Solution
 Managing multiple 5V power connections for sensors and modules with limited power pins on the Arduino.
+Solution: We implemented a breadboard-based power distribution system:
 
-**Solution:** We implemented a breadboard-based power distribution system:
-- **Positive rail (5V):** Connected to Arduino's 5V output pin
-- **Ground rail (0V/GND):** Connected to Arduino's GND pin
-- **Connected devices:** All sensors requiring 5V power (ultrasonic sensors, color sensor) were connected to the breadboard rails
+Positive rail (5V): Connected to Arduino's 5V output pin
+Ground rail (0V/GND): Connected to Arduino's GND pin
+Connected devices: All sensors requiring 5V power (ultrasonic sensors, color sensor) were connected to the breadboard rails
 
-**Advantages:**
-- Organized and accessible power distribution
-- Easy troubleshooting and component replacement
-- Reduced stress on Arduino's voltage regulator by distributing current load
-- Clean cable management
+Advantages:
 
-**Considerations:** We ensured that the total current draw from all 5V devices did not exceed the Arduino's maximum output current (approximately 500mA from USB or 800-1000mA from VIN regulator).
+Organized and accessible power distribution
+Easy troubleshooting and component replacement
+Reduced stress on Arduino's voltage regulator by distributing current load
+Clean cable management
 
 ## 💻 Sources (src)
 
