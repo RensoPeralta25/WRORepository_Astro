@@ -55,7 +55,7 @@ AUTONOMOUS NAVIGATION ROBOT
 ## Project Overview
 This repository contains all the technical documentation, code, and design files for our autonomous navigation robot developed for the WRO Future Engineers. Our project focuses on creating a practical and efficient self-driving vehicle capable of navigating complex environments using sensor fusion and intelligent decision-making algorithms.
 
-## ⚙️ Models
+## Models
 
 ### Main components
 - **Main Controller**: Raspberry Pi 5 (high-level processing)
@@ -111,7 +111,7 @@ This repository contains all the technical documentation, code, and design files
   [Link to buy Battery](https://www.indiamart.com/proddetail/5v-li-ion-battery-22444168691.html)
 
 
-### 🚀 First Prototype Design
+## First Prototype Design
 
 <img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/3b4e8dc8-8090-4ecc-8f10-5860a87f4374" />
 
@@ -150,7 +150,7 @@ Iterative prototyping to validate design assumptions*
 
 These challenges directly informed the development of our second prototype, which addressed all identified spatial and mechanical integration issues.
 
-🚀 Second Prototype Design
+## Second Prototype Design
 
 After evaluating the limitations of our first prototype, we decided to completely redesign the chassis to optimize sensor positioning and improve overall functionality. Building on lessons learned, we planned to incorporate five ultrasonic sensors for enhanced environmental awareness.
 
@@ -279,11 +279,11 @@ Easy troubleshooting and component replacement
 Reduced stress on Arduino's voltage regulator by distributing current load
 Clean cable management
 
-## 💻 Sources (src)
+## Sources (src)
 
 File: projecthub.arduino.cc
 
-## 🤖 What does this code do?
+## What does this code do?
 
 This code controls an Arduino robot that can:
 - **Detect distances** to the left and right using ultrasonic sensors
@@ -291,7 +291,7 @@ This code controls an Arduino robot that can:
 - **Rotate** using a servo motor
 - **Communicate** with a computer via serial port
 
-## 🔌 Hardware Connections
+## Hardware Connections
 
 ### Left Ultrasonic Sensor:
 - `TRIG` → Pin 7
@@ -330,7 +330,7 @@ Before uploading the code, install these Libraries:
 
 **Installation:** In the Arduino IDE, go to `Tools > Manage Libraries` and search for these libraries.
 
-## 💻 Step-by-Step Code Explanation
+## Step-by-Step Code Explanation
 
 ### 1. Pin Definitions
 
@@ -470,7 +470,7 @@ inputString += inChar; // Construct the command
 
 This function is executed automatically when data arrives via serial.
 
-Code: bottom.py
+## Code: bottom.py
 
 This Python script creates a simple button-controlled system that:
 
@@ -599,6 +599,419 @@ Data collection triggers - Start sensor logging on demand
 Mode switching - Toggle between different robot behaviors
 Emergency stops - Launch shutdown or safe mode scripts
 Demo activation - Start presentation routines
+
+## Code: openChallenge.py
+
+This Python script creates an autonomous robot that:
+- **Navigates using ultrasonic sensors** (left and right distance detection)
+- **Adjusts steering automatically** based on sensor readings
+- **Captures video feed** from a Raspberry Pi camera
+- **Detects colored lines** for navigation markers (using RGB sensor)
+- **Communicates with Arduino** via serial for sensor data and servo control
+
+The robot uses a wall-following algorithm to navigate corridors or paths while avoiding obstacles.
+
+### Software Requirements:
+```bash
+# Install required Python packages
+pip3 install pyserial
+pip3 install opencv-python
+pip3 install picamera2
+# Astro library (specific to robot kit)
+```
+
+## System Architecture
+
+```
+┌─────────────┐     Serial     ┌─────────────┐
+│  Raspberry  │◄──────────────►│   Arduino   │
+│     Pi      │    /dev/ttyACM0 │             │
+└──────┬──────┘                └──────┬──────┘
+       │                               │
+   ┌───┴───┐                    ┌─────┴─────┐
+   │Camera │                    │  Sensors  │
+   └───────┘                    │ & Servo   │
+                                └───────────┘
+```
+
+## Key Parameters and Constants
+
+```python
+SERIAL_PORT = "/dev/ttyACM0"  # Arduino serial connection
+BAUD_RATE   = 9600            # Serial communication speed
+
+DISCR_DIST  = 3               # Distance threshold (unused in current version)
+REDIR_ANGLE = 40              # Redirection angle for turns
+CENTER = 70                   # Servo center position (degrees)
+MAX_ANGLE = 40                # Maximum steering angle from center
+```
+
+### Servo Limits:
+- **Minimum angle**: CENTER - MAX_ANGLE = 30°
+- **Maximum angle**: CENTER + MAX_ANGLE = 110°
+- **Center/Straight**: 70°
+
+##  Code Explanation - Section by Section
+
+### 1. Imports and Setup
+
+```python
+from astro import Astro      # Robot control library
+import serial                # Arduino communication
+import time                  # Delays and timing
+import cv2                   # Image processing
+from picamera2 import Picamera2  # Camera interface
+```
+
+### 2. Camera Initialization
+
+```python
+picam2 = Picamera2()
+
+# Configure camera resolution
+config = picam2.create_preview_configuration({"size": (640, 480)})
+picam2.configure(config)
+
+picam2.start()
+time.sleep(0.2)  # Allow camera to stabilize
+```
+
+The camera runs at 640x480 resolution for a balance between quality and performance.
+
+### 3. Helper Functions
+
+#### Constrain Function
+```python
+def constrain(x, mn, mx):
+    return max(mn, min(mx, x))
+```
+Limits a value between minimum and maximum bounds (used for servo angles).
+
+#### Serial Communication
+```python
+def sensor_comm(command):
+    ser.write((command + "\n").encode('utf-8'))
+```
+Sends commands to Arduino (primarily servo angle values).
+
+### 4. Data Reading Functions
+
+The code includes three versions of the data reading function, with `leer_datos3` being the most robust:
+
+```python
+def leer_datos3(timeout_seconds=1.0):
+    start = time.time()
+    
+    while True:
+        linea = ser.readline().decode(errors="ignore").strip()
+        
+        # Timeout check
+        if not linea:
+            if time.time() - start > timeout_seconds:
+                raise ValueError("Timeout: no data received")
+            continue
+        
+        # Format validation
+        if "|" not in linea:
+            if time.time() - start > timeout_seconds:
+                raise ValueError(f"Malformed line: {linea!r}")
+            continue
+        
+        # Parse data
+        partes = linea.split("|")
+        
+        # Pad missing values with zeros
+        while len(partes) < 5:
+            partes.append("0")
+        
+        # Extract values
+        usl_str, usr_str, r_str, g_str, b_str = partes[:5]
+        
+        try:
+            usl = float(usl_str)  # Left ultrasonic
+            usr = float(usr_str)  # Right ultrasonic
+            r = float(r_str)      # Red component
+            g = float(g_str)      # Green component
+            b = float(b_str)      # Blue component
+            return usl, usr, r, g, b
+        except ValueError:
+            if time.time() - start > timeout_seconds:
+                raise
+            continue
+```
+
+**Data Format**: `left_distance|right_distance|red|green|blue`
+
+### 5. Main Navigation Loop
+
+```python
+# Initialize robot
+bot = Astro()
+line_count = 0
+
+bot.stop()
+time.sleep(5)  # Wait before starting
+
+# Get initial sensor sum
+left_dist, right_dist, r, g, b = leer_datos3()
+Sum_Initial = left_dist + right_dist
+
+while True:
+    # Move forward
+    bot.forward(90)  # Speed: 90
+    
+    # Read sensors
+    left_dist, right_dist, r, g, b = leer_datos3()
+    
+    # Capture and display camera image
+    img = picam2.capture_array()
+    img_bgr = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
+    cv2.imshow("CSI Camera (Picamera2 -> OpenCV)", img_bgr)
+    
+    # Calculate current sum
+    Sum_Temp = left_dist + right_dist
+    
+    # Navigation algorithm
+    if(Sum_Temp - 10 < Sum_Initial):
+        # Walls closing in - adjust based on difference
+        angle = CENTER + float(left_dist - right_dist) * (float(MAX_ANGLE) / 30)
+        sensor_comm(str(constrain(angle, CENTER - MAX_ANGLE, CENTER + MAX_ANGLE)))
+        
+    elif(Sum_Temp - 10 > Sum_Initial):
+        # Walls opening up - adjust based on sum
+        angle = CENTER + float(left_dist + right_dist) * (float(MAX_ANGLE) / 30)
+        sensor_comm(str(constrain(angle, CENTER - MAX_ANGLE, CENTER + MAX_ANGLE)))
+        
+    else:
+        # Maintain center
+        sensor_comm("70")
+```
+
+### 6. Navigation Algorithm Explained
+
+The robot uses a **corridor-following algorithm**:
+
+1. **Initial Calibration**: Records the sum of left and right distances at start
+2. **Continuous Monitoring**: Compares current sum with initial sum
+3. **Steering Decisions**:
+   - **Walls closing in** (Sum_Temp < Sum_Initial - 10):
+     - Steers based on the difference between sensors
+     - Moves away from the closer wall
+   - **Walls opening up** (Sum_Temp > Sum_Initial + 10):
+     - Uses the sum of distances for steering
+     - Helps navigate open areas
+   - **Normal corridor**: Maintains center position
+
+### 7. Alternative Navigation Code (Commented Out)
+
+The code includes an alternative navigation method:
+
+```python
+# Smooth out noisy readings
+real_l = left_dist
+if (abs(last_l - left_dist) > 10):
+    real_l = last_l  # Use last value if change too large
+
+# Different steering sensitivity based on distance difference
+if abs(left_dist - right_dist < 40):
+    # Normal steering
+    angle = CENTER + float(real_l - real_r) * (float(MAX_ANGLE) / 20)
+else:
+    # More aggressive steering for larger differences
+    angle = CENTER + float(real_l - real_r) * (float(50) / 20)
+
+# Line detection for counting laps/sections
+if min(r, min(g, b)) == r and r < min(g, b):
+    line_count += 1  # Red line detected
+```
+
+### 8. Error Handling
+
+```python
+try:
+    # Main code
+except serial.SerialException as e:
+    print(f"ERROR opening port: {e}")
+except KeyboardInterrupt:
+    print("\nReading stopped by user.")
+finally:
+    # Cleanup
+    if 'ser' in locals() and ser.is_open:
+        ser.close()
+    picam2.stop()
+    cv2.destroyAllWindows()
+```
+
+## How to Use This Code
+
+### Step 1: Hardware Setup
+1. Connect Arduino to Raspberry Pi via USB
+2. Upload the Arduino sensor code (from previous tutorial)
+3. Mount ultrasonic sensors pointing left and right
+4. Connect camera to CSI port
+5. Ensure robot wheels and servo are properly connected
+
+### Step 2: Software Configuration
+1. Find Arduino port:
+   ```bash
+   ls /dev/tty*  # Look for /dev/ttyACM0 or /dev/ttyUSB0
+   ```
+2. Update `SERIAL_PORT` if different
+3. Install required libraries
+
+### Step 3: Run the Robot
+```bash
+python3 autonomous_robot.py
+```
+
+### Step 4: Monitor Operation
+- Camera feed window shows real-time view
+- Terminal displays sensor readings
+- Press `Ctrl+C` to stop safely
+
+## Understanding the Output
+
+### Terminal Output:
+```
+RAW: 15|20|150|200|180
+Distancia izquierda: 15.0
+Distancia derecha: 20.0
+Sumatoria Inicial: 35.0
+Sumatoria: 35.0
+```
+
+- **RAW**: Raw serial data from Arduino
+- **Distance values**: In centimeters
+- **Sum values**: Used for navigation decisions
+
+## 🔧 Tuning and Optimization
+
+### 1. Steering Sensitivity
+```python
+# Current formula: MAX_ANGLE / 30
+# Increase divisor for less sensitive steering
+angle = CENTER + float(left_dist - right_dist) * (float(MAX_ANGLE) / 30)
+
+# More sensitive (faster reactions)
+angle = CENTER + float(left_dist - right_dist) * (float(MAX_ANGLE) / 20)
+
+# Less sensitive (smoother movement)
+angle = CENTER + float(left_dist - right_dist) * (float(MAX_ANGLE) / 40)
+```
+
+### 2. Speed Control
+```python
+# Current: constant speed
+bot.forward(90)
+
+# Dynamic speed based on obstacles
+if min(left_dist, right_dist) < 15:
+    bot.forward(60)  # Slow down near walls
+else:
+    bot.forward(90)  # Normal speed
+```
+
+### 3. Wall Detection Threshold
+```python
+# Current: 10cm buffer
+if(Sum_Temp - 10 < Sum_Initial):
+
+# More sensitive to changes
+if(Sum_Temp - 5 < Sum_Initial):
+
+# Less sensitive (for wider corridors)
+if(Sum_Temp - 15 < Sum_Initial):
+```
+
+## Advanced Features
+
+### Add Obstacle Avoidance
+```python
+# Emergency stop for close obstacles
+if min(left_dist, right_dist) < 5:
+    bot.stop()
+    time.sleep(0.5)
+    bot.backward(70)
+    time.sleep(1)
+```
+
+### Implement PID Control
+```python
+# Simple proportional control upgrade
+error = left_dist - right_dist
+integral += error * dt
+derivative = (error - last_error) / dt
+
+# PID formula
+steering = Kp * error + Ki * integral + Kd * derivative
+angle = CENTER + constrain(steering, -MAX_ANGLE, MAX_ANGLE)
+```
+
+### Add Path Memory
+```python
+path_history = []
+position_estimate = {"x": 0, "y": 0, "heading": 0}
+
+# Log movements
+path_history.append({
+    "time": time.time(),
+    "left": left_dist,
+    "right": right_dist,
+    "steering": angle
+})
+```
+
+## Troubleshooting
+
+### Serial Communication Issues:
+- **"No data received"**: Check Arduino is sending data
+- **"Malformed line"**: Verify Arduino data format
+- **Permission denied**: Add user to dialout group
+  ```bash
+  sudo usermod -a -G dialout $USER
+  ```
+
+### Camera Issues:
+- **Black screen**: Enable camera in `raspi-config`
+- **Import error**: Install picamera2 dependencies
+- **Slow performance**: Reduce resolution
+
+### Navigation Problems:
+- **Hitting walls**: Increase MAX_ANGLE or sensitivity
+- **Zigzag movement**: Decrease sensitivity or add smoothing
+- **Not turning**: Check servo connections and limits
+
+## Performance Optimization
+
+### 1. Reduce Serial Latency
+```python
+# Add to setup
+ser.set_low_latency_mode(True)
+```
+
+### 2. Optimize Image Processing
+```python
+# Skip frames for display
+frame_count = 0
+if frame_count % 5 == 0:  # Show every 5th frame
+    cv2.imshow("Camera", img_bgr)
+frame_count += 1
+```
+
+### 3. Multi-threading
+```python
+import threading
+
+def camera_thread():
+    while running:
+        img = picam2.capture_array()
+        # Process image
+        
+def sensor_thread():
+    while running:
+        data = leer_datos3()
+        # Process sensors
+```
 
 
 
