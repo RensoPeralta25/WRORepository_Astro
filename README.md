@@ -1038,17 +1038,28 @@ def sensor_thread():
 
 ## v-photos
 
-| Front | Back | Top |
-|:---:|:---:|:---:|
-| ![front1](![front1](https://github.com/user-attachments/assets/81d81761-712a-4719-9eb1-519410c04347)
-) | ![back1](![back1](https://github.com/user-attachments/assets/cc7cd928-7f59-462f-90f1-c30d6e74216a)
-) | ![top1](![top1](https://github.com/user-attachments/assets/2f3dc799-c14d-4839-ac85-325bc6cc29bc)
-) |
-| **Bottom** | **Left** | **Right** |
-| ![bottom1](![bottom1](https://github.com/user-attachments/assets/3eb145c6-18ad-4852-9fd7-3341247b22f5)
-) | ![left1](![left1](https://github.com/user-attachments/assets/8416e093-7ca6-4473-8a14-c78c681055a3)
-) | ![right1](![right1](https://github.com/user-attachments/assets/37525e4d-fc90-4691-b4ee-45a4e9e314a9)
-) |
+### Front
+![front1](https://github.com/user-attachments/assets/25718768-6e3e-4330-a72a-22619659c669)
+
+### Back
+![back1](https://github.com/user-attachments/assets/75742bcb-e481-44d8-a64a-6c67ed9d6786)
+
+### Bottom
+![bottom1](https://github.com/user-attachments/assets/0e09c34b-4534-44d6-8ad3-04ed20f62dc4)
+
+### Left
+![left1](https://github.com/user-attachments/assets/19b77553-6750-4a5e-b8cc-120acd8b8c3f)
+
+### Right
+![right1](https://github.com/user-attachments/assets/72049529-286a-4976-80ca-79ec8b2aba14)
+
+### Top
+![top1](https://github.com/user-attachments/assets/b14796a2-063c-4bb4-b41b-b742c500b400)
+
+
+
+
+
 
 
 
