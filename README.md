@@ -164,17 +164,9 @@ Another thing that we design diferently compare to the first design is the suppo
 
 <img width="248" height="175" alt="segundo soporte ruedas" src="https://github.com/user-attachments/assets/bb8ba79f-5925-48d6-8951-4cd918968b57" />
 
-
-<img width="187" height="256" alt="image" src="https://github.com/user-attachments/assets/bdb9f673-ca8b-47b1-b9a2-70df1f3bc610" />
-
-
 <img width="1073" height="1050" alt="image" src="https://github.com/user-attachments/assets/b5c16143-61ba-4d41-b979-f0399f586681" />
 
 <img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/ba5936a6-692e-4b4e-a551-59d259048d1d" />
-
-
-<img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/85672b52-64fa-4433-bf74-9c037219ee7d" />
-
 
 <img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/b5808995-2f03-4338-a36a-282f4b9e5cf4" />
 
