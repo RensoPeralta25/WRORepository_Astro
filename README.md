@@ -151,28 +151,41 @@ Iterative prototyping to validate design assumptions*
 These challenges directly informed the development of our second prototype, which addressed all identified spatial and mechanical integration issues.
 
 🚀 Second Prototype Design
+
 After evaluating the limitations of our first prototype, we decided to completely redesign the chassis to optimize sensor positioning and improve overall functionality. Building on lessons learned, we planned to incorporate five ultrasonic sensors for enhanced environmental awareness.
+
 Ultrasonic Sensor Holder Design
+
 <img width="608" height="246" alt="chasis largo" src="https://github.com/user-attachments/assets/1977c2ee-f1ab-4214-951c-4f69846def59" />
+
 We designed a dedicated ultrasonic sensor holder to accommodate the five sensors we intended to use: two positioned at the front for forward obstacle detection, one at the rear for reverse awareness, and two mounted mid-chassis for lateral coverage. While this configuration seemed optimal in theory, practical testing revealed a critical flaw—the two front-mounted sensors created physical interference with the front wheel assembly during steering maneuvers, necessitating their removal from the chassis.
+
 Front Wheel Support Structure
 <img width="187" height="256" alt="soporte rueda" src="https://github.com/user-attachments/assets/fea2f472-2f9c-48e3-ba95-0378646b812f" />
+
 <img width="248" height="175" alt="segundo soporte ruedas" src="https://github.com/user-attachments/assets/bb8ba79f-5925-48d6-8951-4cd918968b57" />
+
 Unlike the first design, the second prototype featured an improved front wheel support system. This component served a dual purpose: securely mounting the wheel assembly while providing a stable connection point to the vehicle's outer cover. The redesigned support improved structural rigidity and simplified the assembly process.
+
 Battery Mounting System
+
 <img width="[width]" height="[height]" alt="battery holder" src="[your battery holder image URL]" />
+
 One of the most significant oversights in the first prototype was the lack of a proper battery mounting solution. The original design did not allocate dedicated space or provide any securing mechanism for the power source, which posed risks of battery movement during operation and created organizational challenges within the chassis.
 For the second prototype, we designed a dedicated battery holder integrated into the chassis structure. This mounting bracket securely positioned the battery, preventing unwanted movement while maintaining accessibility for charging and replacement. The strategic placement also contributed to better weight distribution and a lower center of gravity.
 Second Prototype Assembly Views
-<img width="1073" height="1050" alt="image" src="https://github.com/user-attachments/assets/b5c16143-61ba-4d41-b979-f0399f586681" />
+
 <img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/ba5936a6-692e-4b4e-a551-59d259048d1d" />
 <img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/b5808995-2f03-4338-a36a-282f4b9e5cf4" />
 <img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/34787083-5dad-4437-b0b3-238b8af1a8ce" />
 
 🔧 Challenges and Solutions During Final Design
 During the development and assembly of our autonomous vehicle, we encountered several technical challenges that required creative solutions and design modifications. These challenges taught us valuable lessons about iterative design and practical engineering problem-solving.
+
 Dimensional Compliance: Reducing Vehicle Length
+
 Critical Constraint: Competition regulations required vehicles to not exceed specific dimensional limits. Our second prototype measured 11.8 inches in length, exceeding the maximum allowed dimension by one full inch.
+
 Problem: The chassis design, while functionally sound, was too long to comply with competition rules. The extended length was primarily due to:
 
 The frontal sensor mounting structure extending beyond necessary limits
@@ -241,8 +254,6 @@ IMU: I2C bus (shared) - 0 additional pins
 Servo motor (steering): 1 PWM pin
 DC motor driver: 2-4 digital pins
 Total: approximately 9-11 pins
-
-
 
 The Arduino UNO R3 provides 14 digital I/O pins and 6 analog inputs, which is more than sufficient for our reduced configuration. This change offered several advantages:
 
