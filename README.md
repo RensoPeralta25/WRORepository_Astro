@@ -57,9 +57,9 @@ This repository contains the complete documentation and resources for our autono
   * Power Distribution
 
 * **`src`** - Contains the control software source code:
-  * Open Challenge *
-  * projecthub.arduino.cc *
-  * bottom.py *
+  * Open Challenge 
+  * projecthub.arduino.cc
+  * bottom.py
 
 * **`models`** - Contains 3D models and design files:
   * STL files for 3D-printed parts.
