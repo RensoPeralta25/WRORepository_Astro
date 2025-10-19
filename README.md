@@ -76,7 +76,7 @@ This repository contains all the technical documentation, code, and design files
 - **Interface Board**: Robot Hat v4
 <img width="600" height="392" alt="image" src="https://github.com/user-attachments/assets/3f94f7af-df98-439d-bea3-c3194a26fa7b" />
 
-https://www.amazon.com/-/es/SunFounder-expansi%C3%B3n-Raspberry-conductores-recargable/dp/B0CKTD7QJB
+[Link to buy Robot Hat v4](https://www.amazon.com/-/es/SunFounder-expansi%C3%B3n-Raspberry-conductores-recargable/dp/B0CKTD7QJB)
 
 - **Sensors**:
   - 2x Ultrasonic sensors HCSR04 (Bilateral coverage)
