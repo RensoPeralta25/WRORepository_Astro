@@ -1,4 +1,4 @@
-<img width="1280" height="960" alt="image" src="https://github.com/user-attachments/assets/8a778bf1-4257-4d54-aa7c-892368eccad2" /># WRO Repository TEAM Astro
+# WRO Repository TEAM Astro
 ## Team Information
 
 <p align="center">
