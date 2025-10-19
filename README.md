@@ -152,9 +152,23 @@ These challenges directly informed the development of our second prototype, whic
 
 ### 🚀 Second Prototype Design
 
-After having thought about this sketch, for reasons of optimizing the position of sensors, we decided to completely change the design of our autonomous robot. As mentioned before, we wanted to have 6 ultrasonics, to help us have more vision.
+After having thought about this sketch, for reasons of optimizing the position of sensors, we decided to completely change the design of our autonomous robot. As mentioned before, we wanted to have 5 ultrasonics, to help us have more vision.
 
-Therefore, we designed this ultrasonic holder.
+<img width="608" height="246" alt="chasis largo" src="https://github.com/user-attachments/assets/1977c2ee-f1ab-4214-951c-4f69846def59" />
+
+We designed an ultrasonic holder, in order to create an espace for the 5 sensors that we planned to use. Two in the front part of the robot, one in the back and two more in the middle. We thought this was a good idea, but it was not. The two sensors in the front part interfered with the front wheels, so we had to move it from the chassis.
+
+Another thing that we design diferently compare to the first design is the support for the front wheels. This part helped us to secure the wheel with the cover of the vehicle. 
+
+<img width="187" height="256" alt="soporte rueda" src="https://github.com/user-attachments/assets/fea2f472-2f9c-48e3-ba95-0378646b812f" />
+
+<img width="248" height="175" alt="segundo soporte ruedas" src="https://github.com/user-attachments/assets/bb8ba79f-5925-48d6-8951-4cd918968b57" />
+
+
+<img width="187" height="256" alt="image" src="https://github.com/user-attachments/assets/bdb9f673-ca8b-47b1-b9a2-70df1f3bc610" />
+
+
+<img width="1073" height="1050" alt="image" src="https://github.com/user-attachments/assets/b5c16143-61ba-4d41-b979-f0399f586681" />
 
 <img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/ba5936a6-692e-4b4e-a551-59d259048d1d" />
 
